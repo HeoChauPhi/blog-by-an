@@ -1,12 +1,12 @@
 {
     "key": "group_5be3222719959",
-    "title": "Feature for Front page",
+    "title": "Feature Slide for Front page",
     "fields": [
         {
-            "key": "field_5be3277457bb9",
-            "label": "Feature Banner",
-            "name": "feature_banner",
-            "type": "image",
+            "key": "field_5d19bc3956540",
+            "label": "Feature Slide Type",
+            "name": "feature_slide_type",
+            "type": "select",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,74 +15,79 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
+            "choices": {
+                "post_slide": "Post Slider",
+                "Custom_slide": "Custom Slider"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
         },
         {
-            "key": "field_5be327f357bbb",
-            "label": "Feature TItle",
-            "name": "feature_title",
-            "type": "text",
+            "key": "field_5d19bc7356541",
+            "label": "Post Slide Item",
+            "name": "post_slide_item",
+            "type": "post_object",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d19bc3956540",
+                        "operator": "==",
+                        "value": "post_slide"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 1,
+            "return_format": "id",
+            "ui": 1
         },
         {
-            "key": "field_5be327dc57bba",
-            "label": "Feature Small TItle",
-            "name": "feature_small_title",
-            "type": "text",
+            "key": "field_5d19bc9c56542",
+            "label": "Custom Slider Group",
+            "name": "custom_slider_group",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d19bc3956540",
+                        "operator": "==",
+                        "value": "Custom_slide"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5c98a56a2a4b2",
-            "label": "Feature Info",
-            "name": "feature_info",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
+            "collapsed": "",
+            "min": 1,
+            "max": 0,
             "layout": "block",
+            "button_label": "Add Slide Item",
             "sub_fields": [
                 {
-                    "key": "field_5c98a5af2a4b3",
-                    "label": "Image",
-                    "name": "image",
+                    "key": "field_5be3277457bb9",
+                    "label": "Slide Image",
+                    "name": "slide_image",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -104,9 +109,9 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5c98a5df2a4b4",
-                    "label": "Title",
-                    "name": "title",
+                    "key": "field_5d19bd1f56544",
+                    "label": "Slide Title",
+                    "name": "slide_title",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -123,9 +128,9 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5c98a5e72a4b5",
-                    "label": "Content",
-                    "name": "content",
+                    "key": "field_5d19bd2756545",
+                    "label": "Slide Description",
+                    "name": "slide_description",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -138,8 +143,24 @@
                     "default_value": "",
                     "placeholder": "",
                     "maxlength": "",
-                    "rows": 5,
+                    "rows": 3,
                     "new_lines": "br"
+                },
+                {
+                    "key": "field_5d19bd3c56546",
+                    "label": "Slide URL",
+                    "name": "slide_url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
         }
@@ -147,9 +168,9 @@
     "location": [
         [
             {
-                "param": "page_type",
+                "param": "page_template",
                 "operator": "==",
-                "value": "front_page"
+                "value": "page-templates\/template-front-page.php"
             }
         ]
     ],
@@ -163,5 +184,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1553510275
+    "modified": 1561978131
 }

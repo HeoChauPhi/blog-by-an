@@ -18,14 +18,55 @@
             "layouts": {
                 "layout_5b8372f2dae72": {
                     "key": "layout_5b8372f2dae72",
-                    "name": "map_block",
-                    "label": "Map Block",
+                    "name": "block_list_posts",
+                    "label": "Block List Posts",
                     "display": "row",
                     "sub_fields": [
                         {
-                            "key": "field_5b8372f2dae73",
-                            "label": "Map Title",
-                            "name": "map_title",
+                            "key": "field_5d19c1c70e07a",
+                            "label": "Post Type",
+                            "name": "post_type",
+                            "type": "posttype_select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "placeholder": "",
+                            "disabled": 0,
+                            "readonly": 0
+                        },
+                        {
+                            "key": "field_5d19c1e40e07b",
+                            "label": "Post Number on Page",
+                            "name": "post_number_on_page",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": -1,
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_5b8372f3dae76",
+                            "label": "Component Class",
+                            "name": "component_class",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -40,28 +81,19 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
-                        },
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5d19c1a10e075": {
+                    "key": "layout_5d19c1a10e075",
+                    "name": "map_block",
+                    "label": "Map Block",
+                    "display": "row",
+                    "sub_fields": [
                         {
-                            "key": "field_5b8372f3dae74",
-                            "label": "Map Description",
-                            "name": "map_description",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 3,
-                            "new_lines": ""
-                        },
-                        {
-                            "key": "field_5b8372f3dae75",
+                            "key": "field_5d19c1a20e078",
                             "label": "Map Embed",
                             "name": "map_embed",
                             "type": "google_map",
@@ -79,7 +111,31 @@
                             "height": 300
                         },
                         {
-                            "key": "field_5b8372f3dae76",
+                            "key": "field_5d19c2990e07c",
+                            "label": "Map Marker",
+                            "name": "map_marker",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_5d19c1a20e079",
                             "label": "Component Class",
                             "name": "component_class",
                             "type": "text",
@@ -124,5 +180,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1553315252
+    "modified": 1561969347
 }

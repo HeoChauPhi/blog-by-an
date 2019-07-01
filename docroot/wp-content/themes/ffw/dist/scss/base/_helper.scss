@@ -13,7 +13,7 @@
 }
 
 .hidden-on-desktop {
-  @include breakpoint(laptop) {
+  @include breakpoint(colmd) {
     display: none;
   }
 }
@@ -21,7 +21,7 @@
 .hidden-on-mobile {
   display: none;
 
-  @include breakpoint(laptop) {
+  @include breakpoint(colmd) {
     display: block;
   }
 }

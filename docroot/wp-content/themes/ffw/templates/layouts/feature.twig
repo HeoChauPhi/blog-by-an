@@ -1,31 +1,49 @@
 {% if fn('is_front_page') %}
+  {% if post.get_field('feature_slide_type') %}
   <div id="feature" class="feature front-banner">
-    <div class="feature-media parallax-window" data-parallax="scroll" data-image-src="{{ post.get_field('feature_banner').url }}" title="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}"></div>
     <div class="container">
-      <div class="feature-content">
-        {% if post.get_field('feature_small_title') %}
-        <h3 class="feature-small-title">{{ post.get_field('feature_small_title') }}</h3>
-        {% endif %}
-        {% if post.get_field('feature_title') %}
-        <h2 class="feature-big-title">{{ post.get_field('feature_title') }}</h2>
-        {% endif %}
+      {% if post.get_field('feature_slide_type') == 'post_slide' %}
+      <div class="feature-slide feature-post-slide">
+      {% for item in post_slide %}
+        {% include 'feature-post-select-item.twig' with {'post': item} only %}
+      {% endfor %}
       </div>
+      {% else %}
+      <div class="feature-slide feature-post-slide">
+      {% for item in post.get_field('custom_slider_group') %}
+        {% include 'feature-custom-item.twig' with {'post': item} only %}
+      {% endfor %}
+      </div>
+      {% endif %}
     </div>
   </div>
+  {% endif %}
 {% else %}
-    <div id="feature" class="feature">
-      <div class="feature-media parallax-window" data-parallax="scroll" data-image-src="{{ post.get_field('feature_banner').url }}" title="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}"></div>
+  {% if post.get_field('feature_enable') %}
+  <div id="feature" class="feature">
+    {% if post.get_field('feature_banner') %}
+    <div class="feature-media parallax-window" data-parallax="scroll" data-image-src="{{ post.get_field('feature_banner').url }}" title="{{ post.get_field('feature_banner').title|replace({'-': ' ', '_': ' '}) }}"></div>
+    {% endif %}
+    <div class="feature-content">
       <div class="container">
-
-      {% if fn('is_page') %}
-        {% if title_option != "on" %}
+        <div class="feature-inner">
+        {% if fn('is_page') %}
+          {% if title_option != "on" %}
+            <h1 id="page-title">{{ post.title }}</h1>
+          {% endif %}
+        {% else %}
           <h1 id="page-title">{{ post.title }}</h1>
         {% endif %}
-      {% else %}
-        <h1 id="page-title">{{ post.title }}</h1>
-      {% endif %}
-      
-      {% include 'breadcrumb.twig' %}
+
+        {% if post.get_field('page_description') %}
+        <div class="page-description">{{ post.get_field('page_description') }}</div>
+        {% endif %}
+        
+        {#% include 'breadcrumb.twig' %#}
+        </div>
       </div>
     </div>
+    <div class="overlay-parallax"></div>
+  </div>
+  {% endif %}
 {% endif %}

@@ -1,0 +1,148 @@
+#feature {
+  color: $white;
+  position: relative;
+}
+
+.feature {
+  .overlay-parallax {
+    background-color: rgba($black, 0.8);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+  &:not(.front-banner) {
+    min-height: rem(250px);
+
+    @include breakpoint(colmd) {
+      height: rem(300px);
+    }
+
+    .feature-content {
+      align-items: center;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .feature-inner {
+      margin: 0 auto;
+      max-width: 80%;
+      text-align: center;
+    }
+
+    #page-title {
+      @include MontserratAlternatesBlod;
+      font-size: rem(32px);
+      margin: rem(0 0 20px);
+    }
+
+    .page-description {
+      font-size: rem(16px);
+    }
+  }
+
+  &.front-banner {
+    .container {
+      @include breakpoint(colmdDown) {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .feature-slide {
+    display: none;
+    position: relative;
+
+    &.slick-slider {
+      display: block;
+    }
+  }
+
+  .feature-slide-item {
+    height: rem(300px);
+    overflow: hidden;
+    position: relative;
+
+    @include breakpoint(colmd) {
+      height: rem(465px);
+    }
+
+    .slide-item-image {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+
+      img {
+        opacity: 0;
+        visibility: hidden;
+        z-index: -999;
+      }
+    }
+
+    .slide-item-content {
+      align-items: center;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      .slide-item-content-inner {
+        margin: 0 auto;
+        max-width: 80%;
+        text-align: center;
+      }
+
+      .slide-item-title {
+        @include MontserratAlternatesBlod;
+        font-size: rem(32px);
+        margin: rem(0 0 20px);
+      }
+
+      .slide-item-intro {
+        font-size: rem(16px);
+
+        .dash {
+          background-color: $white;
+          display: inline-block;
+          height: rem(1px);
+          margin-bottom: rem(3px);
+          margin: rem(0 15px);
+          width: rem(15px);
+        }
+
+        .post-date,
+        .post-author {
+          text-transform: capitalize;
+        }
+      }
+    }
+
+    .slide-item-link {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 3;
+    }
+  }
+}

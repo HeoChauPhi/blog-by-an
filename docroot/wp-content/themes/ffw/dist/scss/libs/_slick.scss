@@ -98,3 +98,28 @@
 .slick-arrow.slick-hidden {
   display: none;
 }
+
+.slick-arrow {
+  @include transform(translate(0px, -50px));
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  height: 100px;
+  position: absolute;
+  text-indent: -999em;
+  top: 50%;
+  width: 40px;
+  z-index: 1;
+
+  &.slick-prev {
+    background-image: url(../images/icons/chevron-left-white.svg);
+    left: 0;
+  }
+
+  &.slick-next {
+    background-image: url(../images/icons/chevron-right-white.svg);
+    right: 0;
+  }
+}

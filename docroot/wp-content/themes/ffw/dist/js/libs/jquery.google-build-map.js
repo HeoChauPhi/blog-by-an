@@ -14,12 +14,105 @@
   function new_map( $el ) {
     // var
     var $markers = $el.find('.marker');
+
+    var $fullscreenControl = true;
+    var $mapTypeControl = true;
+    if ($el.data('fullscreen-control') == false) {
+      $fullscreenControl = false;
+    }
+
+    if ($el.data('maptype-control') == false) {
+      $mapTypeControl = false;
+    }
+
     // vars
     var args = {
       zoom    : 18,
       center    : new google.maps.LatLng(0, 0),
       scrollwheel : false,
-      mapTypeId : google.maps.MapTypeId.ROADMAP
+      fullscreenControl: $fullscreenControl,
+      mapTypeControl: $mapTypeControl,
+      mapTypeId : google.maps.MapTypeId.ROADMAP,
+      styles: [
+        {
+        featureType: "administrative",
+        elementType: "labels.text.fill",
+        stylers: [
+            {
+              color: "#444444"
+            }
+          ]
+        },
+        {
+          featureType: "landscape",
+          elementType: "all",
+          stylers: [
+            {
+              color: "#f2f2f2"
+            }
+          ]
+        },
+        {
+          featureType: "poi",
+          elementType: "all",
+          stylers: [
+            {
+              visibility: "off"
+            }
+          ]
+        },
+        {
+          featureType: "road",
+          elementType: "all",
+          stylers: [
+            {
+              saturation: -100
+            },
+            {
+              lightness: 45
+            }
+          ]
+        },
+        {
+          featureType: "road.highway",
+          elementType: "all",
+          stylers: [
+            {
+              visibility: "simplified"
+            }
+          ]
+        },
+        {
+          featureType: "road.arterial",
+          elementType: "labels.icon",
+          stylers: [
+            {
+              visibility: "off"
+            }
+          ]
+        },
+        {
+          featureType: "transit",
+          elementType: "all",
+          stylers: [
+            {
+              visibility: "off"
+            }
+          ]
+        },
+        {
+          featureType: "water",
+          elementType: "all",
+          stylers: [
+            {
+              color: "#c8d7d0"
+            },
+            {
+              visibility: "on"
+            }
+          ]
+        }
+      ]
     };
     // create map
     var map = new google.maps.Map( $el[0], args);
@@ -66,6 +159,7 @@
       var infowindow = new google.maps.InfoWindow({
         content   : $marker.html()
       });
+      infowindow.open( map, marker );
       // show info window when marker is clicked
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.open( map, marker );

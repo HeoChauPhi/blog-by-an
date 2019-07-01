@@ -201,13 +201,3 @@ add_action('acf/init', function() {
   $google_api_key = $theme_options['ffw_google_api_key'];
   acf_update_setting('google_api_key', $google_api_key);
 });
-
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
-
-function timber_set_product( $post ) {
-  global $product;
-
-  if ( is_woocommerce() ) {
-    $product = wc_get_product( $post->ID );
-  }
-}

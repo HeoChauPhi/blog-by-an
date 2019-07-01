@@ -139,7 +139,11 @@ function acfwidget($name, $widgetid) {
             $field['index'] = $index;
 
             if ( strpos($field['component_class'], 'col-') === false ) {
-              $field['layout'] = 12 / $acffield_count;
+              if ( $acffield_count <= 4 ) {
+                $field['layout'] = 12 / $acffield_count;
+              } else {
+                $field['layout'] = 3;
+              }
             }
             //print_r($field);
             try {

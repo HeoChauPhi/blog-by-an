@@ -1,0 +1,12 @@
+<div class="feature-slide-item feature-post-slide-item">
+  <div class="slide-item-image" style="background-image: url({{ post.thumbnail.src }});"><img src="{{ post.thumbnail.src }}" alt></div>
+  <div class="slide-item-content">
+    <div class="slide-item-content-inner">
+      <h3 class="slide-item-title">{{ post.title }}</h3>
+      <div class="slide-item-intro">
+        <span class="post-date">{{ post.date }}</span><span class="dash"></span><span class="post-author">{{ post.author }}</span>
+      </div>
+    </div>
+  </div>
+  <a href="{{ post.link }}" class="slide-item-link"></a>
+</div>

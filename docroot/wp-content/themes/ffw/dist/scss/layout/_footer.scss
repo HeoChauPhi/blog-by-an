@@ -1,0 +1,129 @@
+.footer-wrapper {
+  background-color: $bg-footer;
+  color: $color-footer;
+}
+
+.footer-pannel {
+  background-color: $bg-footer-panel;
+  line-height: rem(30px);
+  padding: rem(70px 0);
+
+  .block-footer {
+    margin-bottom: rem(35px);
+
+    @include breakpoint(colmd) {
+      margin-bottom: 0;
+    }
+  }
+
+  .block-title {
+    @include MontserratAlternatesBlod;
+    color: $white;
+    margin: rem(0 0 32px);
+    font-size: rem(15px);
+  }
+}
+
+.footer-bottom {
+  padding: rem(40px 0);
+}
+
+.block-footer-text {
+  .block--content {
+    line-height: rem(30px);
+  }
+}
+
+.block-footer-menu {
+  .footer-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &.footer-menu-2col {
+      column-count: 2;
+      column-gap: rem(15px);
+    }
+  
+    li {
+      list-style: none;
+
+      a {
+        color: $color-footer;
+
+        &:hover {
+          color: $color-link;
+        }
+      }
+    }
+  }
+}
+
+.block-footer-social {
+  margin-bottom: 0 !important;
+
+  .block-facebook-fanpage {
+    margin-bottom: rem(30px);
+
+    .fb-page,
+    .fb-page > span,
+    .fb-page > span > iframe, {
+      width: 100% !important;
+    }
+  }
+
+  .social-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .social-item {
+      display: inline-block;
+      line-height: 1.5;
+      list-style: none;
+      margin-right: rem(20px);
+
+      a {
+        &:hover {
+          color: $color-link !important;
+        }
+      }
+    }
+  }
+}
+
+.block-copyright {
+  text-align: center;
+
+  p {
+    margin: 0;
+  }
+}
+
+.back-to-top {
+  @include box-shadow(rem(1px -1px 3px 0px) $color-textlight);
+  @include transform(rotate(90deg));
+  @include transition(opacity 0.3s ease);
+  background-color: $white;
+  background-image: url(../images/icons/chevron-left.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  border-radius: rem(500px);
+  bottom: rem(30px);
+  cursor: pointer;
+  height: rem(50px);
+  opacity: 0;
+  position: fixed;
+  right: rem(30px);
+  text-indent: -999em;
+  visibility: hidden;
+  width: rem(50px);
+  z-index: -999;
+
+  &.btn-show {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+  }
+}

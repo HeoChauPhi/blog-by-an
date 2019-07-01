@@ -17,40 +17,60 @@ $mobile: 480px;
 
 // Set the proper directory for the Bootstrap Glyphicon font.
 $icon-font-path: '../bootstrap/assets/fonts/bootstrap/';
-$container-large-desktop: 1170px !default;
+$container-large-desktop: 1130px !default;
 
 // Fonts.
-@mixin opensans {
-  font-family: 'Open Sans', sans-serif;
+@mixin MontserratAlternates {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 400;
 }
 
-@mixin lato {
-  font-family: 'Lato', sans-serif;
+@mixin MontserratAlternatesBlod {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 700;
 }
 
-@mixin myriadProBold {
-  font-family: 'MyriadProBold', sans-serif;
-}
-
-$base-font-size: 14px;
+$base-font-size: 15px;
 
 // Color.
-$red: #26baff;
-$red-dark: #232044;
+$orenge: #ec6a2a;
+$orange-lighter: #f28f4e;
 $black: #000000;
 $white: #ffffff;
 
-$color-primary: $red;
-$color-second: $red-dark;
+$color-primary: $orenge;
+$color-second: $orange-lighter;
 
-$gray-3b: #3b3b3b;
+$gray-54: #545454;
+$gray-78: #787878;
+$gray-98: #989898;
+$gray-99: #999999;
+$gray-34: #343434;
+$gray-e6: #e6e6e6;
+$gray-d7: #d7d7d7;
+$gray-a8: #a8a8a8;
+$gray-42: #424242;
+$gray-2d: #2d2d2d;
+
+$gray-1c2: #1C2433;
+$gray-202: #202938;
+$gray-909: #909db1;
 
 // Text color
-$color-base: $gray-3b;
+$color-base: $gray-78;
+$color-content: $gray-54;
+$color-textlight: $gray-98;
 $color-link: $color-primary;
 $color-link-hover: $color-primary;
-$color-title: $color-second;
+$color-title: $gray-34;
+$color-menu: $gray-99;
+$color-menu-hover: $gray-a8;
+$color-footer: $gray-909;
 
 // bg color
-$color-line: $color-second;
-$bg-footer: $color-second;
+$color-line: $gray-e6;
+$color-linemenu: $gray-42;
+$color-lineform: $gray-d7;
+$bg-footer-panel: $gray-1c2;
+$bg-footer: $gray-202;
+$bg-menu: $gray-2d;

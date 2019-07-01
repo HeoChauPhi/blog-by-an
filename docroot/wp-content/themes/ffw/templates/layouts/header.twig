@@ -1,29 +1,35 @@
 {% block header %}
-  <header id="header" class="header">
-    <div class="header-wrapper">
-      <div class="header-top">
-        <div class="container">
-          {% include 'block-user.twig' %}
-        </div>
+  <header id="header" class="header-wrapper">
+    {#<div class="header-top">
+      <div class="container">
+        {% include 'block-user.twig' %}
       </div>
+    </div>#}
+    
+    <div class="header-navigation">
+      <div class="container">
+        {% block navigation %}
+          {% include 'navigation.twig' %}
+        {% endblock %}
 
-      <div id="header-navigation" class="header--navigation">
-        <div class="container">
-          <div class="header-logo">
-            <a href="{{ site.url }}" class="logo">
-              <img alt="{{ site.name }}" src="{{ site_logo }}" alt="{{ site.name }}">
-            </a>
+        <div class="hidden-on-desktop header-icon-responsive">
+          <div class="header-icon-responsive-wrapper">
+            <a href="{{ site.url }}" class="logo logo--mobile"><img src="{{ site_logo }}" alt="{{ site.name }}"></a>
+
+            <div class="menu-responsive">
+              <div class="menu-responsive-inner">
+                <span class="line-menu line-menu-top"></span>
+                <span class="line-menu line-menu-middle"></span>
+                <span class="line-menu line-menu-bottom"></span>
+              </div>
+            </div>
           </div>
-
-          {% block navigation %}
-            <div class="block-navigation">{% include 'navigation.twig' %}</div>
-          {% endblock %}
         </div>
-
-        {#% if global_ppl %}
-        {% include 'custom-ppl.twig' %}
-        {% endif %#}
       </div>
     </div>
+
+    {#% if global_ppl %}
+    {% include 'custom-ppl.twig' %}
+    {% endif %#}
   </header>
 {% endblock %}
