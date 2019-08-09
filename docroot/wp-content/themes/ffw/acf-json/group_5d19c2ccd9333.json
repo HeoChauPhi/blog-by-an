@@ -163,7 +163,7 @@
                             "collapsed": "",
                             "min": 0,
                             "max": 0,
-                            "layout": "table",
+                            "layout": "block",
                             "button_label": "Add Social",
                             "sub_fields": [
                                 {
@@ -196,7 +196,10 @@
                                         "id": ""
                                     },
                                     "icon_sets": [
-                                        "far"
+                                        "fas",
+                                        "far",
+                                        "fal",
+                                        "fab"
                                     ],
                                     "custom_icon_set": "",
                                     "default_label": "",
@@ -207,21 +210,6 @@
                                     "enqueue_fa": 0,
                                     "fa_live_preview": "",
                                     "choices": []
-                                },
-                                {
-                                    "key": "field_5d19c41dd0892",
-                                    "label": "Social Background Color",
-                                    "name": "social_background_color",
-                                    "type": "color_picker",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": ""
                                 }
                             ]
                         },
@@ -229,7 +217,7 @@
                             "key": "field_5d19c449d0893",
                             "label": "Newsletter Form",
                             "name": "newsletter_form",
-                            "type": "text",
+                            "type": "post_object",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -238,11 +226,14 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
+                            "post_type": [
+                                "mc4wp-form"
+                            ],
+                            "taxonomy": "",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "return_format": "id",
+                            "ui": 1
                         },
                         {
                             "key": "field_5d19c460d0894",
@@ -428,7 +419,7 @@
                             "max_width": "",
                             "max_height": "",
                             "max_size": "",
-                            "mime_types": ""
+                            "mime_types": "png, jpg, jpeg"
                         },
                         {
                             "key": "field_5d19c571d089e",
@@ -444,8 +435,8 @@
                                 "id": ""
                             },
                             "choices": {
-                                "small": "Small",
-                                "large": "Large"
+                                "small": "Small (300 x 250)",
+                                "large": "Large (300 x 600)"
                             },
                             "default_value": [],
                             "allow_null": 0,
@@ -454,6 +445,21 @@
                             "return_format": "value",
                             "ajax": 0,
                             "placeholder": ""
+                        },
+                        {
+                            "key": "field_5d448f7d42899",
+                            "label": "Banner Link",
+                            "name": "banner_link",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
                         },
                         {
                             "key": "field_5d19c618d089f",
@@ -478,14 +484,14 @@
                     "min": "",
                     "max": ""
                 },
-                "layout_5d19c632d08a0": {
-                    "key": "layout_5d19c632d08a0",
-                    "name": "block_taxonomies",
-                    "label": "Block Taxonomies",
+                "layout_5d44896f96454": {
+                    "key": "layout_5d44896f96454",
+                    "name": "block_categories",
+                    "label": "Block Categories",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5d19c63dd08a1",
+                            "key": "field_5d44896f96455",
                             "label": "Block Title",
                             "name": "block_title",
                             "type": "text",
@@ -504,10 +510,10 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_5d19c645d08a2",
-                            "label": "Taxonomy Select",
-                            "name": "taxonomy_select",
-                            "type": "advanced_taxonomy_selector",
+                            "key": "field_5d44896f96457",
+                            "label": "Category Count",
+                            "name": "category_count",
+                            "type": "true_false",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -516,19 +522,33 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "data_type": "taxonomy",
-                            "taxonomies": [
-                                "all"
-                            ],
-                            "post_type": [
-                                "post"
-                            ],
-                            "field_type": "select",
-                            "allow_null": 1,
-                            "return_value": "object"
+                            "message": "Show post counts",
+                            "default_value": 1,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         },
                         {
-                            "key": "field_5d19c75584228",
+                            "key": "field_5d449d4672eab",
+                            "label": "Category Hierarchy",
+                            "name": "category_hierarchy",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Show hierarchy",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_5d44896f96458",
                             "label": "Component Class",
                             "name": "component_class",
                             "type": "text",
@@ -573,5 +593,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1561970582
+    "modified": 1564777831
 }

@@ -201,3 +201,20 @@ add_action('acf/init', function() {
   $google_api_key = $theme_options['ffw_google_api_key'];
   acf_update_setting('google_api_key', $google_api_key);
 });
+
+// Update Post Viewed
+function ffw_count_post_visits() {
+  if( is_single() ) {
+    global $post;
+
+    $views = get_field('post_viewed', $post->ID);
+
+    if( $views == '' || $views == 0 ) {
+      update_field('post_viewed', 1, $post->ID); 
+    } else {
+      $views_no = intval( $views );
+      update_field('post_viewed', ++$views_no, $post->ID); 
+    }
+  }
+}
+add_action( 'wp_head', 'ffw_count_post_visits' );

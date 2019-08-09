@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.2.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-05-24 10:49:36+0000\n"
+"PO-Revision-Date: 2019-07-08 01:07:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,91 +22,96 @@ msgctxt "start of week"
 msgid "1"
 msgstr "1"
 
+#. translators: %s: Recovery Mode exit link
+#: wp-admin/includes/update.php:854
+msgid "You are in recovery mode. This means there may be an error with a theme or plugin. To exit recovery mode, log out or use the Exit button. <a href=\"%s\">Exit Recovery Mode</a>"
+msgstr "Bạn đang ở chế độ khôi phục. Nghĩa là giao diện hoặc plugin có thể đã gặp lỗi. Để thoát chế độ này, hãy đăng xuất hoặc nhấp vào nút Thoát. <a href=\"%s\">Thoát chế độ khôi phục</a>"
+
 #. translators: 1: wp_body_open 2: <body>
-#: wp-admin/about.php:169
+#: wp-admin/about.php:194
 msgid "5.2 introduces a %1$s hook, which lets themes support injecting code right at the beginning of the %2$s element."
 msgstr "Phiên bản 5.2 giới thiệu hook %1$s, cho phép các giao diện hỗ trợ truyền code ngay khi bắt đầu phần tử %2$s."
 
 #. translators: 1: link to /wp-admin/site-health.php 2: link to
 #. /wp-admin/site-health.php?tab=debug
-#: wp-admin/about.php:104
+#: wp-admin/about.php:129
 msgid " <a href=\"%1$s\">Check your site status</a>, and <a href=\"%2$s\">learn how to debug issues</a>."
 msgstr " <a href=\"%1$s\">Kiểm tra trạng thái web</a> và <a href=\"%2$s\">tìm hiểu cách debug lỗi</a>."
 
 #. translators: 1: link to the WordPress 5.1 release post
-#: wp-admin/about.php:97
+#: wp-admin/about.php:122
 msgid "Building on <a href=\"%1$s\">the Site Health features introduced in 5.1</a>, this release adds two new pages to help debug common configuration issues. It also adds space where developers can include debugging information for site maintainers."
 msgstr "Dựa trên các <a href=\"%1$s\">tính năng Kiểm tra trang web được giới thiệu từ phiên bản 5.1</a>, phiên bản này bổ sung hai trang mới để giúp gỡ lỗi các vấn đề cấu hình phổ biến. Nó cũng cung cấp khả năng giúp các lập trình viên có thể đưa thêm thông tin gỡ lỗi cho người quản trị web."
 
-#: wp-admin/about.php:178
+#: wp-admin/about.php:203
 msgid "With the addition of webpack and Babel configurations in the @wordpress/scripts package, developers won&#8217;t have to worry about setting up complex build tools to write modern JavaScript."
 msgstr "Với việc bổ sung cấu hình webpack và Babel trong gói @wordpress/scripts, các lập trình viên sẽ không phải lo lắng về việc thiết lập các công cụ xây dựng phức tạp để viết JavaScript."
 
-#: wp-admin/about.php:177
+#: wp-admin/about.php:202
 msgid "Building JavaScript"
 msgstr "Xây dựng JavaScript"
 
-#: wp-admin/about.php:164
+#: wp-admin/about.php:189
 msgid "New Body Tag Hook"
 msgstr "Hook thẻ body mới"
 
-#: wp-admin/about.php:159
+#: wp-admin/about.php:184
 msgid "A new theme page template, a conditional function, and two CSS classes make designing and customizing the Privacy Policy page easier."
 msgstr "Mẫu trang giao diện mới, chức năng có điều kiện và hai class CSS giúp thiết kế và tùy chỉnh trang Chính sách bảo mật dễ dàng hơn."
 
-#: wp-admin/about.php:158
+#: wp-admin/about.php:183
 msgid "Privacy Updates"
 msgstr "Cập nhật quyền riêng tư"
 
-#: wp-admin/about.php:155
+#: wp-admin/about.php:180
 msgid "The minimum supported PHP version is now 5.6.20. As of WordPress 5.2, themes and plugins can safely take advantage of namespaces, anonymous functions, and more!"
 msgstr "Phiên bản PHP tối thiểu được hỗ trợ hiện nay là 5.6.20. Kể từ WordPress 5.2, các giao diện và plugin có thể tận dụng một cách an toàn namespace, các function ẩn danh và hơn thế nữa!"
 
-#: wp-admin/about.php:154
+#: wp-admin/about.php:179
 msgid "PHP Version Bump"
 msgstr "Cập nhật phiên bản PHP"
 
-#: wp-admin/about.php:144
+#: wp-admin/about.php:169
 msgid "Thirteen new icons include Instagram, a suite of icons for BuddyPress, and rotated Earth icons for global inclusion. Find them in the Dashboard and have some fun!"
 msgstr "13 biểu tượng mới bao gồm Instagram, một bộ biểu tượng cho BuddyPress và các biểu tượng Trái đất xoay để áp dụng cho toàn cầu. Tìm chúng trong Bảng điều khiển và cảm nhận nhé!"
 
-#: wp-admin/about.php:143
+#: wp-admin/about.php:168
 msgid "New Dashboard Icons"
 msgstr "Biểu tượng bảng điều khiển mới"
 
-#: wp-admin/about.php:140
+#: wp-admin/about.php:165
 msgid "A number of changes work together to improve contextual awareness and keyboard navigation flow for those using screen readers and other assistive technologies."
 msgstr "Một vài thay đổi giúp cải thiện hoạt động bàn phím dành cho các máy đọc và công nghệ hỗ trợ khác."
 
-#: wp-admin/about.php:139
+#: wp-admin/about.php:164
 msgid "Accessibility Updates"
 msgstr "Cập nhật khả năng truy cập"
 
-#: wp-admin/about.php:135
+#: wp-admin/about.php:160
 msgid "Improvements for Everyone"
 msgstr "Cải tiến cho mọi người"
 
-#: wp-admin/about.php:129
-msgid "This administrator-focused update will let you safely fix or manage fatal errors without requiring developer time. It features better handling of the so-called “white screen of death,” and a way to enter recovery mode,  which pauses error-causing plugins or themes."
-msgstr "Bản cập nhật về phần quản trị này sẽ giúp bạn sửa lỗi một cách an toàn mà không cần thời gian lập trình. Nó đơn giản giúp bạn tránh \"màn hình chết\", và cho phép truy cập chế độ khôi phục và tạm dừng plugin hoặc giao diện gây ra lỗi."
+#: wp-admin/about.php:154
+msgid "This administrator-focused update will let you safely fix or manage fatal errors without requiring a developer. It features better handling of the so-called “white screen of death”, and a way to enter recovery mode, which pauses error-causing plugins or themes."
+msgstr "Bản cập nhật về phần quản trị này sẽ giúp bạn sửa lỗi an toàn mà không cần sự can thiệp của lập trình viên. Nó đơn giản giúp bạn tránh lỗi \"màn hình chết\", cho phép truy cập chế độ khôi phục và tạm dừng plugin hoặc giao diện gây ra lỗi."
 
-#: wp-admin/about.php:128
+#: wp-admin/about.php:153
 msgid "PHP Error Protection"
 msgstr "Bảo vệ lỗi PHP"
 
-#: wp-admin/about.php:98
+#: wp-admin/about.php:123
 msgid "https://wordpress.org/news/2019/02/betty/"
 msgstr "https://wordpress.org/news/2019/02/betty/"
 
-#: wp-admin/about.php:92
+#: wp-admin/about.php:117
 msgid "Site Health Check"
 msgstr "Kiểm tra web"
 
-#: wp-admin/about.php:82
+#: wp-admin/about.php:107
 msgid "WordPress 5.2 gives you even more robust tools for identifying and fixing configuration issues and fatal errors. Whether you are a developer helping clients or you manage your site solo, these tools can help get you the right information when you need it."
 msgstr "WordPress 5.2 cung cấp cho bạn các công cụ mạnh mẽ hơn nữa để xác định và khắc phục những sự cố cấu hình và lỗi nghiêm trọng. Cho dù bạn là nhà phát triển giúp khách hàng hay bạn quản lý trang web một mình, những công cụ này có thể giúp bạn có được thông tin chính xác khi bạn cần."
 
-#: wp-admin/about.php:81
+#: wp-admin/about.php:106
 msgid "Keeping Your Site Safe"
 msgstr "Giữ an toàn cho trang web của bạn"
 
@@ -115,19 +120,14 @@ msgstr "Giữ an toàn cho trang web của bạn"
 msgid "Congratulations on updating to WordPress %s! This update makes it easier than ever to fix your site if something goes wrong."
 msgstr "Chúc mừng bạn đã cập nhật lên WordPress %s! Bản cập nhật này giúp việc sửa chữa web của bạn trở nên dễ dàng hơn bao giờ hết."
 
-#. translators: 1: The filename of the package.
-#: wp-admin/includes/file.php:1191 wp-admin/includes/file.php:1222
-msgid "The authenticity of %1$s could not be verified as signature verification is unavailable on this system."
-msgstr "Không thể xác thực %1$s vì xác minh chữ ký không có sẵn trên hệ thống này."
-
 #. translators: tab heading for Site Health Status page
-#: wp-admin/site-health-info.php:52
+#: wp-admin/site-health-info.php:52 wp-admin/site-health.php:57
 msgctxt "Site Health"
 msgid "Status"
 msgstr "Trạng thái"
 
 #. translators: tab heading for Site Health Info page
-#: wp-admin/site-health-info.php:59
+#: wp-admin/site-health-info.php:59 wp-admin/site-health.php:64
 msgctxt "Site Health"
 msgid "Info"
 msgstr "Thông tin"
@@ -142,7 +142,7 @@ msgid "Closed"
 msgstr "Đã đóng"
 
 #. translators: %s: number of critical issues found
-#: wp-admin/site-health.php:96 wp-admin/js/site-health.js:68
+#: wp-admin/site-health.php:102 wp-admin/js/site-health.js:68
 msgid "%s Critical issue"
 msgid_plural "%s Critical issues"
 msgstr[0] "%s vấn đề nghiêm trọng"
@@ -185,6 +185,7 @@ msgid "PHP modules perform most of the tasks on the server that make your site r
 msgstr "Các module PHP thực hiện hầu hết các thao tác trên máy chủ để đảm bảo trang web của bạn hoạt động bình thường. Bất cứ sự thay đổi nào đều phải được thực hiện bởi người quản trị máy chủ."
 
 #: wp-admin/includes/class-wp-site-health.php:652
+#: wp-admin/includes/dashboard.php:1631
 msgid "PHP is the programming language we use to build and maintain WordPress. Newer versions of PHP are both faster and more secure, so updating will have a positive effect on your site&#8217;s performance."
 msgstr "PHP là ngôn ngữ lập trình mà chúng tôi sử dụng để xây dựng và duy trì WordPress. Các phiên bản mới hơn của PHP đều nhanh và an toàn hơn, do đó, việc cập nhật sẽ có tác động tích cực đến hiệu suất của trang web của bạn."
 
@@ -260,7 +261,7 @@ msgstr "Đã cài đặt 1 giao diện, và là phiên bản mới nhất."
 msgid "Your site has 1 active plugin, and it is up to date."
 msgstr "Đang có 1 plugin được kích hoạt, và đang là phiên bản mới nhất."
 
-#: wp-admin/site-health.php:117
+#: wp-admin/site-health.php:123
 msgid "Passed tests"
 msgstr "Đạt"
 
@@ -280,7 +281,7 @@ msgstr "Xuất danh sách có đầy đủ dữ liệu của trang web này, hã
 msgid "This page can show you every detail about the configuration of your WordPress website. If we see anything here that could be improved, we will let you know on the Site Health Status page."
 msgstr "Thông tin chi tiết cấu hình trang WordPress này. Nếu có những vấn đề cần khắc phục, bạn sẽ thấy thông báo trong Tình trạng website."
 
-#: wp-admin/site-health-info.php:68 wp-admin/site-health.php:67
+#: wp-admin/site-health-info.php:68 wp-admin/site-health.php:73
 msgid "The Site Health check requires JavaScript."
 msgstr "Chức năng Kiểm tra tình trạng website yêu cầu Javascript."
 
@@ -338,7 +339,8 @@ msgid "The authenticity of %s could not be verified as no signature was found."
 msgstr "Việc xác thực %s không thành công vì không có chữ ký."
 
 #. translators: %s: The filename of the package.
-#: wp-admin/includes/file.php:1171
+#: wp-admin/includes/file.php:1171 wp-admin/includes/file.php:1191
+#: wp-admin/includes/file.php:1222
 msgid "The authenticity of %s could not be verified as signature verification is unavailable on this system."
 msgstr "Không thể xác thực %s vì chứng thực chữ ký không có sẵn trên hệ thống."
 
@@ -474,10 +476,6 @@ msgctxt "plugin"
 msgid "Cannot Update"
 msgstr "Không thể cập nhật"
 
-#: wp-admin/includes/update.php:847
-msgid "You are in recovery mode. This means there may be an error with a theme or plugin. To exit recovery mode, log out or use the Exit button."
-msgstr "Bạn đang ở chế độ khôi phục. Điều này có nghĩa là xảy ra lỗi với giao diện hoặc plugin của bạn. Để thoát khỏi chế độ này, hãy đăng xuất hoặc nhấp vào nút Thoát."
-
 #: wp-admin/includes/update.php:458
 msgid "There is a new version of %1$s available, but it doesn&#8217;t work with your version of PHP. <a href=\"%2$s\" %3$s>View version %4$s details</a> or <a href=\"%5$s\">learn more about updating PHP</a>."
 msgstr "Có một phiên bản mới của %1$s, nhưng nó không hoạt động với phiên bản PHP của bạn. <a href=\"%2$s\" %3$s>Xem chi tiết phiên bản %4$s</a> hoặc <a href=\"%5$s\">tìm hiểu thêm về cách cập nhật PHP</a>."
@@ -486,7 +484,7 @@ msgstr "Có một phiên bản mới của %1$s, nhưng nó không hoạt độn
 msgid "This plugin failed to load properly and is paused during recovery mode."
 msgstr "Plugin này không hoạt động đúng cách và bị tạm dừng trong chế độ khôi phục."
 
-#: wp-admin/includes/theme.php:905
+#: wp-admin/includes/theme.php:910
 msgid "Go to the Themes screen"
 msgstr "Chuyển tới phần Giao diện "
 
@@ -502,40 +500,35 @@ msgstr "Gặp lỗi khi xác định kích thước bản cài của bạn. Tổ
 msgid "The size cannot be calculated. The directory is not accessible. Usually caused by invalid permissions."
 msgstr "Không thể tính được kích thước. Thư mục không thể truy cập. Thường do quyền không hợp lệ của thư mục."
 
-#. translators: %s: number of ratings
-#: wp-admin/includes/theme.php:727
-msgid "(%s ratings) <span class=\"screen-reader-text\">link to view ratings opens in a new tab</span>"
-msgstr "(%s đánh giá) <span class=\"screen-reader-text\">liên kết để xem tỷ lệ đánh giá trong tab mới</span>"
-
 #: wp-admin/includes/class-wp-debug-data.php:218
 msgid "These settings alter where and how parts of WordPress are loaded."
 msgstr "Cài đặt này thay đổi vị trí và các phần WordPress tải."
 
 #. translators: %s: number of items with no issues
-#: wp-admin/site-health.php:126 wp-admin/js/site-health.js:72
+#: wp-admin/site-health.php:132 wp-admin/js/site-health.js:72
 msgid "%s Item with no issues detected"
 msgid_plural "%s Items with no issues detected"
 msgstr[0] "%s mục không phát hiện vấn đề"
 
 #. translators: %s: number of recommended improvements
-#: wp-admin/site-health.php:107 wp-admin/js/site-health.js:70
+#: wp-admin/site-health.php:113 wp-admin/js/site-health.js:70
 msgid "%s Recommended improvement"
 msgid_plural "%s Recommended improvements"
 msgstr[0] "%s Cải tiến được đề xuất"
 
-#: wp-admin/site-health.php:90
+#: wp-admin/site-health.php:96
 msgid "The site health check shows critical information about your WordPress configuration and items that require your attention."
 msgstr "Kiểm tra tình trạng website giúp bạn xem các thông tin quan trọng về cấu hình WordPress cùng các vấn đề bạn có thể can thiệp."
 
-#: wp-admin/site-health.php:17 wp-admin/site-health.php:87
+#: wp-admin/site-health.php:17 wp-admin/site-health.php:93
 msgid "Site Health Status"
 msgstr "Tình trạng web của bạn"
 
-#: wp-admin/site-health.php:81
+#: wp-admin/site-health.php:87
 msgid "Everything is running smoothly here."
 msgstr "Mọi thứ đều hoạt động tốt."
 
-#: wp-admin/site-health.php:77
+#: wp-admin/site-health.php:83
 msgid "Great job!"
 msgstr "Tuyệt vời!"
 
@@ -1672,10 +1665,6 @@ msgstr "Cài đặt trang chủ"
 msgid "Learn more about updating PHP"
 msgstr "Tìm hiểu cách cập nhật PHP"
 
-#: wp-admin/includes/dashboard.php:1631
-msgid "PHP is the programming language we use to build and maintain WordPress. Newer versions of PHP are both faster and more secure, so updating will have a positive effect on your site’s performance."
-msgstr "PHP là ngôn ngữ lập trình chúng tôi sử dụng để xây dựng và phát triển WordPress. Phiên bản mới của PHP nhanh và bảo mật hơn, nên việc cập nhật sẽ ảnh hưởng tích cực đến hiệu suất trang web của bạn."
-
 #: wp-admin/includes/dashboard.php:1630
 msgid "What is PHP and how does it affect my site?"
 msgstr "PHP là gì và nó ảnh hưởng như nào đến trang web của tôi?"
@@ -1802,6 +1791,7 @@ msgstr "Không thể cài đặt"
 #. translators: %s: WordPress version
 #: wp-admin/includes/update.php:267 wp-admin/install.php:242
 #: wp-admin/update-core.php:75 wp-admin/upgrade.php:84 wp-admin/about.php:72
+#: wp-admin/about.php:97
 msgid "https://wordpress.org/support/wordpress-version/version-%s/"
 msgstr "https://wordpress.org/support/wordpress-version/version-%s/"
 
@@ -1817,11 +1807,11 @@ msgctxt "plugin"
 msgid "Resume %s"
 msgstr "Tiếp tục %s"
 
-#: wp-admin/includes/theme.php:903
+#: wp-admin/includes/theme.php:908
 msgid "You can find more details and make changes on the Themes screen."
 msgstr "Bạn có thể xem chi tiết và thay đổi ở màn hình Giao diện."
 
-#: wp-admin/includes/theme.php:902
+#: wp-admin/includes/theme.php:907
 msgid "One or more themes failed to load properly."
 msgstr "Một hoặc nhiều giao diện không thể tải được."
 
@@ -1830,7 +1820,7 @@ msgstr "Một hoặc nhiều giao diện không thể tải được."
 msgid "Deleting a category does not delete the posts in that category. Instead, posts that were only assigned to the deleted category are set to the default category %s. The default category cannot be deleted."
 msgstr "Xóa chuyên mục sẽ không xóa bài viết trong chuyên mục đó. Thay vì thế, bài viết sẽ được chuyển đến chuyên mục mặc định %s. Chuyên mục mặc định không thể xóa."
 
-#: wp-admin/includes/theme.php:875
+#: wp-admin/includes/theme.php:880
 msgid "Could not resume the theme."
 msgstr "Không thể trở lại giao diện."
 
@@ -2926,7 +2916,7 @@ msgstr "https://codex.wordpress.org/Giving_WordPress_Its_Own_Directory"
 msgid "Enter the address here if you <a href=\"%s\">want your site home page to be different from your WordPress installation directory</a>."
 msgstr "Nhập địa chỉ nếu bạn <a href=\"%s\">muốn địa chỉ website khác thư mục cài đặt WordPress</a>."
 
-#: wp-admin/about.php:150
+#: wp-admin/about.php:175
 msgid "Developer Happiness"
 msgstr "Cải tiến cho nhà phát triển"
 
@@ -3350,10 +3340,6 @@ msgstr "Nếu bạn cần cài đặt lại phiên bản %s, bạn có thể là
 msgid "You are using a development version of WordPress. You can update to the latest nightly build automatically:"
 msgstr "Bạn đang sử dụng phiên bản phát triển của WordPress. Bạn có thể cập nhật bản mới nhất tự động:"
 
-#: wp-admin/themes.php:323 wp-admin/themes.php:485
-msgid "New version available."
-msgstr "Phiên bản mới sẵn có"
-
 #: wp-admin/theme-install.php:232
 msgid "Edit Filters"
 msgstr "Sửa điều kiện lọc"
@@ -3372,7 +3358,7 @@ msgid "Choose either a city in the same timezone as you or a UTC timezone offset
 msgstr "Chọn tên thành phố hoặc múi giờ."
 
 #. translators: %s: number of ratings
-#: wp-admin/theme-install.php:341
+#: wp-admin/includes/theme.php:729 wp-admin/theme-install.php:341
 msgid "(%s ratings)"
 msgstr "(%s đánh giá)"
 
@@ -3731,7 +3717,7 @@ msgstr "Việc này sẽ thay thế nội dung hiện tại với bản sao lưu
 msgid "Close media attachment panel"
 msgstr "Đóng khung media"
 
-#: wp-admin/includes/ms.php:1075 wp-admin/site-health.php:59
+#: wp-admin/includes/ms.php:1075
 msgid "Info"
 msgstr "Thông tin"
 
@@ -4313,7 +4299,7 @@ msgid "(Currently set to: %s)"
 msgstr "(Hiện tại: %s)"
 
 #. translators: %s: WordPress version number
-#: wp-admin/about.php:210
+#: wp-admin/about.php:235
 msgid "<strong>Version %s</strong> addressed one security issue."
 msgstr "<strong>Phiên bản %s</strong> đã giải quyết vấn đề bảo mật."
 
@@ -4329,15 +4315,15 @@ msgstr "Bạn có thể thay đổi hình ảnh hồ sơ tại <a href=\"%s\">Gr
 msgid "Profile Picture"
 msgstr "Ảnh đại diện"
 
-#: wp-admin/about.php:52 wp-admin/about.php:207
+#: wp-admin/about.php:52 wp-admin/about.php:232
 msgid "Maintenance and Security Releases"
 msgstr "Các phiên bản bảo trì và bảo mật"
 
-#: wp-admin/about.php:204
+#: wp-admin/about.php:229
 msgid "Security Releases"
 msgstr "Các phiên bản bảo mật"
 
-#: wp-admin/about.php:201
+#: wp-admin/about.php:226
 msgid "Maintenance Releases"
 msgstr "Các phiên bản bảo trì"
 
@@ -6096,7 +6082,7 @@ msgstr "Khi cài đặt này hoạt động, một thông báo sẽ hiển thị
 msgid "Accessibility Ready"
 msgstr "Truy Cập Sẵn Sàng"
 
-#: wp-admin/includes/theme.php:741 wp-admin/themes.php:559
+#: wp-admin/includes/theme.php:746 wp-admin/themes.php:559
 msgid "This is a child theme of %s."
 msgstr "Đây là giao diện con của %s."
 
@@ -6200,7 +6186,7 @@ msgstr "Xem giao diện tiếp theo"
 msgid "Show previous theme"
 msgstr "Xem giao diện trước"
 
-#: wp-admin/includes/theme.php:735 wp-admin/themes.php:552
+#: wp-admin/includes/theme.php:740 wp-admin/themes.php:552
 msgid "Update Available"
 msgstr "Phiên bản mới sẵn sàng cập nhật"
 
@@ -8015,27 +8001,27 @@ msgid "Show Toolbar when viewing site"
 msgstr "Hiển thị thanh công cụ khi xem trang"
 
 #. translators: 1: WordPress version number, 2: plural number of bugs.
-#: wp-admin/about.php:57 wp-admin/about.php:215
+#: wp-admin/about.php:57 wp-admin/about.php:82 wp-admin/about.php:240
 msgid "<strong>Version %1$s</strong> addressed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed %2$s bugs."
 msgstr[0] "<strong>Phiên bản %1$s</strong> đã giải quyết %2$s lỗi."
 
 #. translators: 1: WordPress version number, 2: plural number of bugs. More
 #. than one security issue.
-#: wp-admin/about.php:227
+#: wp-admin/about.php:252
 msgid "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed some security issues and fixed %2$s bugs."
 msgstr[0] "<strong>Phiên bản %1$s</strong> đã giải quyết một số vấn đề về bảo mật và sửa %2$s lỗi."
 
 #. translators: %s: HelpHub URL
 #. translators: %s: Codex URL
-#: wp-admin/about.php:69 wp-admin/about.php:233
+#: wp-admin/about.php:69 wp-admin/about.php:94 wp-admin/about.php:258
 msgid "For more information, see <a href=\"%s\">the release notes</a>."
 msgstr "Để biết thêm thông tin, xem <a href=\"%s\">thông báo phát hành</a>."
 
 #. translators: 1: WordPress version number, 2: plural number of bugs. Singular
 #. security issue.
-#: wp-admin/about.php:221
+#: wp-admin/about.php:246
 msgid "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bug."
 msgid_plural "<strong>Version %1$s</strong> addressed a security issue and fixed %2$s bugs."
 msgstr[0] "<strong>Phiên bản %1$s</strong> đã giải quyết một vấn đề về bảo mật và sửa %2$s lỗi."
@@ -8045,15 +8031,15 @@ msgid "Welcome to your WordPress Dashboard! This is the screen you will see when
 msgstr "Chào mừng đến với giao diện Quản trị của WordPress! Đây đơn giản là nơi bạn đăng nhập và truy cập vào các tính năng quản lý website của mình. Bạn có thể xem thêm thông tin trợ giúp bằng cách nhấp vào các mục Trợ giúp ở trên mỗi đầu trang."
 
 #. translators: %s: WordPress version number
-#: wp-admin/about.php:212
+#: wp-admin/about.php:237
 msgid "<strong>Version %s</strong> addressed some security issues."
 msgstr "<strong>Phiên bản %1$s</strong> đã giải quyết một số vấn đề về bảo mật."
 
-#: wp-admin/about.php:200
+#: wp-admin/about.php:225
 msgid "Maintenance Release"
 msgstr "Các bản Bảo Trì"
 
-#: wp-admin/about.php:203
+#: wp-admin/about.php:228
 msgid "Security Release"
 msgstr "Các bản Bảo Mật"
 
@@ -8061,7 +8047,7 @@ msgstr "Các bản Bảo Mật"
 msgid "What&#8217;s New"
 msgstr "Có gì mới"
 
-#: wp-admin/about.php:206
+#: wp-admin/about.php:231
 msgid "Maintenance and Security Release"
 msgstr "Các bản Bảo Mật và Bảo Trì"
 
@@ -8073,7 +8059,7 @@ msgstr "Màn hình này cho phép bạn định nghĩa cấu trúc liên kết t
 msgid "Welcome to WordPress %1$s. <a href=\"%2$s\">Learn more</a>."
 msgstr "Chào mừng tới WordPress %1$s. <a href=\"%2$s\">Đọc tiếp</a>."
 
-#: wp-admin/about.php:187
+#: wp-admin/about.php:212
 msgid "Return to Updates"
 msgstr "Quay lại Nâng Cấp"
 
@@ -8341,11 +8327,11 @@ msgstr "Quản Lý Trang Tĩnh"
 msgid "Because this is a multisite installation, you may add accounts that already exist on the Network by specifying a username or email, and defining a role. For more options, such as specifying a password, you have to be a Network Administrator and use the hover link under an existing user&#8217;s name to Edit the user profile under Network Admin > All Users."
 msgstr "Do đây là một bản cài đặt đa mạng, bạn có thể thêm tài khoản đã tồn tại trong Mạng Lưới bằng cách chỉ định tên truy cập hoặc địa chỉ thư điện tử, và lựa chọn một vai trò người dùng. Để có thêm lựa chọn, như chỉ định mật khẩu, bạn phải là Quản Trị Viên Mạng Lưới và sử dụng liên kết hiển thị phía dưới tên người dùng khi di chuột lên để Biên Tập hồ sơ người dùng tại Quản Trị Mạng Lưới > Tất Cả Người Dùng."
 
-#: wp-admin/about.php:187
+#: wp-admin/about.php:212
 msgid "Return to Dashboard &rarr; Updates"
 msgstr "Quay lại Bảng tin &rarr; Cập nhật"
 
-#: wp-admin/about.php:190
+#: wp-admin/about.php:215
 msgid "Go to Dashboard &rarr; Home"
 msgstr "Đến Bảng tin &rarr; Trang chủ"
 
@@ -8532,7 +8518,7 @@ msgid "Plugins %s"
 msgstr "Plugin %s"
 
 #. translators: %s: plugin name
-#: wp-admin/includes/theme.php:763
+#: wp-admin/includes/theme.php:768
 #: wp-admin/includes/class-wp-theme-install-list-table.php:478
 #: wp-admin/includes/deprecated.php:1381 wp-admin/theme-install.php:299
 #: wp-admin/theme-install.php:319
@@ -8547,7 +8533,7 @@ msgstr "Tất cả người dùng"
 #: wp-admin/includes/class-wp-links-list-table.php:88
 #: wp-admin/includes/class-wp-links-list-table.php:323
 #: wp-admin/includes/class-wp-themes-list-table.php:200
-#: wp-admin/includes/theme.php:758
+#: wp-admin/includes/theme.php:763
 #: wp-admin/includes/class-wp-plugins-list-table.php:500
 #: wp-admin/includes/class-wp-plugins-list-table.php:654
 #: wp-admin/includes/class-wp-plugins-list-table.php:683
@@ -10174,7 +10160,7 @@ msgstr "Xem tất cả"
 msgid "Please enter a valid menu name."
 msgstr "Vui lòng nhập tên hợp lệ cho Menu."
 
-#: wp-admin/about.php:190
+#: wp-admin/about.php:215
 msgid "Go to Dashboard"
 msgstr "Xem bảng tin"
 
@@ -10595,7 +10581,7 @@ msgstr "Chọn giao diện để chỉnh sửa:"
 msgid "Edit Themes"
 msgstr "Chỉnh sửa Giao diện"
 
-#: wp-admin/includes/theme.php:747 wp-admin/themes.php:563
+#: wp-admin/includes/theme.php:752 wp-admin/themes.php:563
 msgid "Tags:"
 msgstr "Thẻ:"
 
@@ -11496,7 +11482,7 @@ msgstr "Một cột"
 msgid "Feature Filter"
 msgstr "Bộ lọc theo đặc điểm"
 
-#: wp-admin/includes/class-wp-screen.php:939
+#: wp-admin/includes/class-wp-screen.php:932
 msgid "Screen Options"
 msgstr "Tùy chọn hiển thị"
 

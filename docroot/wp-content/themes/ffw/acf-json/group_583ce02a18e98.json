@@ -43,9 +43,9 @@
                             "readonly": 0
                         },
                         {
-                            "key": "field_5d19c1e40e07b",
-                            "label": "Post Number on Page",
-                            "name": "post_number_on_page",
+                            "key": "field_5d3f1a74ba08d",
+                            "label": "Number of Posts",
+                            "name": "number_of_posts",
                             "type": "number",
                             "instructions": "",
                             "required": 0,
@@ -55,11 +55,40 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "default_value": -1,
+                            "placeholder": "Set -1 for show all Posts",
+                            "prepend": "",
+                            "append": "",
+                            "min": -1,
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_5d19c1e40e07b",
+                            "label": "Post Number on Page",
+                            "name": "post_number_on_page",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5d3f1a74ba08d",
+                                        "operator": ">",
+                                        "value": "0"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "default_value": "",
                             "placeholder": "",
                             "prepend": "",
                             "append": "",
-                            "min": -1,
+                            "min": 1,
                             "max": "",
                             "step": ""
                         },
@@ -180,5 +209,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1561969347
+    "modified": 1564425419
 }

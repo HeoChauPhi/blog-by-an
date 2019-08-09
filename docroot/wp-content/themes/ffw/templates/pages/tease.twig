@@ -1,29 +1,98 @@
-<div class="block-content top-translation">
-  <div class="container-wide">
-    <div class="block-content__wrappre">
-      <div class="block-main-content">
-        <div class="date align--center">{{ post.date }}</div>
-        {% if post.get_field('summary') %}
-        <div class="sub-page-title">{{ post.get_field('summary') }}</div>
-        {% endif %}
-        {{ function('shortcode', '[share_buttons]') }}
-        <div class="block-content__body">{{ post.content|shortcodes }}</div>
+<div class="main-wrapper">
+  <div class="container">
+    <div class="main-inner">
+      <div class="signle-wrapper">
+        <div class="container-inner">
+          <h1 id="page-title">{{ post.title }}</h1>
+          <div class="post-info">
+            {% if fn('get_the_category', post.ID) %}
+            <div class="post-categories">
+              {% for cat in fn('get_the_category', post.ID) %}
+                {% spaceless %}
+                  <a href="{{ fn('get_category_link', cat.term_id) }}">{{ cat.name }}</a>
+                  {% if loop.last is empty %}<span>, </span>{% endif %}
+                {% endspaceless %}
+              {% endfor %}
+            </div>
+            <span class="post-info-dash"></span>
+            {% endif %}
+            <div class="post-date">{{ post.date|date('F j, Y') }}</div>
+            <span class="post-info-dash"></span>
+            <div class="post-comment-count"><a href="#comment-list"><i class="fas fa-comments"></i> {{ fn('get_comments_number', post.ID) }}</a></div>
+          </div>
+
+          {% if fn('get_the_post_thumbnail_url', post.ID) %}
+          <div class="post-media container-inner-full">
+            <div class="post-image">
+              <img src="{{ fn('get_the_post_thumbnail_url', post.ID) }}" alt>
+            </div>
+            <a href="#" class="post-like"><span class="post-like-inner"><i class="far fa-heart"></i> <span class="post-like-count">{{ fn('rand', 20, 100) }}</span></span></a>
+          </div>
+          {% endif %}
+
+          <div class="single-content-body">{{ post.content|shortcodes }}</div>
+
+          <div class="post-nav-link">
+            <div class="post-nav-link-item post-nav-prev">
+              <label>{{ pll_e('Previous Post') }}</label>
+              {{ fn('previous_post_link', '%link') }}
+            </div>
+            <div class="post-nav-link-item post-nav-next">
+              <label>{{ pll_e('Next Post') }}</label>
+              {{ fn('next_post_link', '%link') }}
+            </div>
+          </div>
+
+          {{ function('shortcode', '[share_buttons print_icon=0]') }}
+
+          {% if fn('get_the_tags', post.ID) %}
+          <div class="post-tags">
+            {% for tag in fn('get_the_tags', post.ID) %}
+              {% spaceless %}
+                <a href="{{ fn('get_tag_link', tag.term_id) }}">{{ tag.name }}</a>
+              {% endspaceless %}
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
       </div>
+
+    {% if fn('related', 'category') %}
+      <div class="block-related-post">
+        <div class="container-inner">
+          <h3 class="related-title block-title">{{ pll_e('Related post') }}</h3>
+          <div class="post-related row">
+            {% for post in fn('related', 'category', 2) %}
+              <div class="post-related-item col-sm-6">
+              {% if post.thumbnail %}
+              <div class="post-related-image">
+                <span class="post-related-image-inner" style="background-image: url({{ post.thumbnail.src }});">
+                  <img src="{{ post.thumbnail.src }}">
+                </span>
+                <a href="{{ post.link }}" class="post-related-link"></a>
+              </div>
+              {% endif %}
+              <div class="post-related-body">
+                <h3 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+                <div class="post-info">
+                  <div class="post-date">{{ post.date|date('F j, Y') }}</div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if fn('comments_open') %}
+      <div class="block-comment-wrapper">
+        <div class="container-inner">
+          {% include 'comments.twig' with {'default_avatar': default_avatar} %}
+          {{ fn('comment_form') }}
+        </div>
+      </div>
+    {% endif %}
     </div>
   </div>
 </div>
-
-{#% if related('category') %}
-  <h3 class="related-title block-title">Related post</h3>
-  <ul class="post-related">
-    {% for post in function('related', 'category') %}
-      <li><a href="{{post.link}}">{{post.title}}</a></li>
-    {% endfor %}
-  </ul>
-{% endif %#}
-
-{#% if function('comments_open') %}
-{% include 'comments.twig' %}
-{{ function('comment_form') }}
-{% endif %#}
-

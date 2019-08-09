@@ -1,0 +1,53 @@
+{% if classes %}
+  {% set classes = classes %}
+{% else %}
+  {% set classes = null %}
+{% endif %}
+
+{% if comment_option %}
+  {% set comment_option = 1 %}
+{% else %}
+  {% set comment_option = null %}
+{% endif %}
+
+<div class="post-item {{ fn('get_post_class', classes, post.ID)|join(' ') }}">
+  {% if fn('get_the_post_thumbnail_url', post.ID) %}
+  <div class="post-media">
+    <a class="post-image" href="{{ fn('get_permalink', post.ID) }}"><span style="background-image: url({{ fn('get_the_post_thumbnail_url', post.ID) }});"><img src="{{ fn('get_the_post_thumbnail_url', post.ID) }}" alt></span></a>
+    <a href="#" class="post-like"><span class="post-like-inner"><i class="far fa-heart"></i> <span class="post-like-count">{{ fn('rand', 20, 100) }}</span></span></a>
+  </div>
+  {% endif %}
+  <div class="post-body">
+    <h2 class="post-title"><a href="{{ fn('get_permalink', post.ID) }}">{{ fn('get_the_title', post.ID) }}</a></h2>
+    <div class="post-info">
+      {#<div class="post-author">
+              {% set user_data = fn('get_userdata', post.post_author).data %}
+              <div class="post-author-avatar"><img src="{{ fn('get_field', 'user_avatar', 'user_' ~ user_data.ID).sizes.thumbnail }}" alt></div>
+              <div class="post-author-name"><a href="{{ fn('get_author_posts_url', user_data.ID) }}">{{ user_data.display_name }}</a></div>
+            </div>
+            <span class="post-info-dash"></span>#}
+      <div class="post-date">
+        {{ fn('get_the_date', 'F j, Y', post.ID) }}
+      </div>
+      <span class="post-info-dash"></span>
+      {% if fn('get_the_category', post.ID) %}
+      <div class="post-categories">
+        {% for cat in fn('get_the_category', post.ID) %}
+          {% spaceless %}
+            <a href="{{ fn('get_category_link', cat.term_id) }}">{{ cat.name }}</a>
+            {% if loop.last is empty %}<span>, </span>{% endif %}
+          {% endspaceless %}
+        {% endfor %}
+      </div>
+      <span class="post-info-dash"></span>
+      {% endif %}
+    </div>
+    <div class="post-content">{{ fn('get_the_content', null, false, post.ID)|excerpt(55) }}</div>
+    <div class="post-action">
+      {% include 'social-detail.twig' with {'permalink': fn('get_permalink', post.ID)} only %}
+      {% if comment_option %}
+      <div class="post-comment-count"><i class="fas fa-comments"></i> {{ fn('get_comments_number', post.ID) }}</div>
+      {% endif %}
+    </div>
+  </div>
+</div>

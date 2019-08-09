@@ -44,7 +44,7 @@ function ffw_move_comment_form_below( $fields ) {
 add_action( 'pre_get_posts',  'ffw_set_posts_per_page'  );
 function ffw_set_posts_per_page( $query ) {
   global $wp_the_query;
-  if ( (!is_admin()) && ( $query === $wp_the_query ) && ( $query->is_archive() ) && (!is_woocommerce()) ) {
+  if ( (!is_admin()) && ( $query === $wp_the_query ) && ( $query->is_archive() ) ) {
     $query->set( 'posts_per_page', 1 );
   }
   return $query;
@@ -75,10 +75,10 @@ if (function_exists('register_sidebar')) {
   register_sidebar(array(
     'name' => __('Sidebar'),
     'description' => __('Description for this widget-area...'),
-    'id' => 'sidebar-1',
-    'before_widget' => '<div id="%1$s" class="%2$s">',
+    'id' => 'sidebar-left',
+    'before_widget' => '<div id="%1$s" class="block-sidebar %2$s">',
     'after_widget' => '</div>',
-    'before_title' => '<h3>',
+    'before_title' => '<h3 class="block-title sidebar-title">',
     'after_title' => '</h3>'
   ));
   // Define Header block
@@ -132,11 +132,66 @@ class sidebar_Widget extends WP_Widget {
 
   public function widget( $args, $instance ) {
     $title    = apply_filters( 'widget_title', $instance['title'] );
-    echo $args['before_widget'];
-    if ( $title ) {
-      echo $args['before_title'] . $title . $args['after_title'];
+    
+    //print_r($args);
+    if ( function_exists('get_field') ) {
+      $acffield = get_field('sidebar_components', 'widget_' . $args['widget_id']);
+      if ( !empty( $acffield ) ) {
+        foreach ($acffield as $field) {
+          $layout = $field['acf_fc_layout'];
+          
+          switch ($layout) {
+            case 'block_categories':
+              $field['terms'] = Timber::get_terms('category');
+              
+              try {
+                Timber::render($layout . '.twig', $field);
+              } catch (Exception $e) {
+                echo 'Could not find a twig file for layout type: ' . $layout . '<br>';
+              }
+              break;
+
+            case 'block_post_list':              
+              $args = array(
+                'post_type'       => $field['post_type'],
+                'posts_per_page'  => $field['post_number'],
+                'post_status'     => 'publish',
+              );
+
+              if ( $field['post_filtter'] == 'popular' ) {
+                $args['meta_key'] = 'post_viewed';
+                $args['orderby']  = 'meta_value_num';
+                $args['order']    = 'DESC';
+              }
+
+              $posts = Timber::get_posts($args);
+              $field['return_items'] = $posts;
+
+              try {
+                Timber::render($layout . '.twig', $field);
+              } catch (Exception $e) {
+                echo 'Could not find a twig file for layout type: ' . $layout . '<br>';
+              }
+              break;
+
+            default:
+              //print_r($field);
+              try {
+                Timber::render($layout . '.twig', $field);
+              } catch (Exception $e) {
+                echo 'Could not find a twig file for layout type: ' . $layout . '<br>';
+              }
+              break;
+          }
+        }
+      }
+    } else {
+      echo $args['before_widget'];
+      if ( $title ) {
+        echo $args['before_title'] . $title . $args['after_title'];
+      }
+      echo $args['after_widget'];
     }
-    echo $args['after_widget'];
   }
 
   function update( $new_instance, $old_instance ) {
@@ -146,7 +201,11 @@ class sidebar_Widget extends WP_Widget {
   }
 
   function form( $instance ) {
-    $title      = esc_attr( $instance['title'] );
+    if ($instance) {
+      $title = esc_attr( $instance['title'] );
+    } else {
+      $title = null;
+    }
     ?>
     <p>
       <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
@@ -189,7 +248,11 @@ class header_Widget extends WP_Widget {
   }
 
   function form( $instance ) {
-    $title      = esc_attr( $instance['title'] );
+    if ($instance) {
+      $title = esc_attr( $instance['title'] );
+    } else {
+      $title = null;
+    }
     ?>
     <p>
       <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
@@ -232,7 +295,11 @@ class footer_Widget extends WP_Widget {
   }
 
   function form( $instance ) {
-    $title      = esc_attr( $instance['title'] );
+    if ($instance) {
+      $title = esc_attr( $instance['title'] );
+    } else {
+      $title = null;
+    }
     ?>
     <p>
       <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>

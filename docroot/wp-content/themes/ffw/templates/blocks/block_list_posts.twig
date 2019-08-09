@@ -1,0 +1,8 @@
+<div class="block-list-post {{ component_class }}">
+  <div class="list-posts">
+    {% for item in return_items %}
+      {% include 'post-item.twig' with {'post': item} only %}
+    {% endfor %}
+  </div>
+  {% include 'pagination.twig' with {'pagination': pagination} only %}
+</div>

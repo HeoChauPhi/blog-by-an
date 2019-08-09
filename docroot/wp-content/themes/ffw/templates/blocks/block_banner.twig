@@ -1,0 +1,10 @@
+<div class="block-sidebar block-sidebar-banner {{ component_class }}">
+  <div class="sidebar-banner-image sidebar-banner-{{ banner_size }}" style="background-image: url({{ banner_image.url }});">
+    <div class="sidebar-banner-inner">
+      <h3 class="block-title sidebar-title sidebar-banner-title">{{ block_title }}</h3>
+    </div>
+    {% if banner_link.url %}
+    <a class="sidebar-banner-link" href="{{ banner_link.url }}" target="{{ banner_link.target }}"></a>
+    {% endif %}
+  </div>
+</div>

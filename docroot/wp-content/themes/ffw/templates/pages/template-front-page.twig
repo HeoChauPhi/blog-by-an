@@ -1,8 +1,15 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
-  {% for post in posts %}
-    {{ function('flexible_content', 'group_component') }}
-  {% endfor %}
-  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        {{ function('flexible_content', 'group_component') }}
+      </div>
+
+      <div class="col-md-4">
+        {{ sidebar_left }}
+      </div>
+    </div>
+  </div>
 {% endblock %}

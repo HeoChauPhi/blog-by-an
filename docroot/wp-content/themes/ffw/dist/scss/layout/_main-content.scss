@@ -1,0 +1,37 @@
+main {
+  padding-bottom: rem(60px);
+}
+
+.main-wrapper {
+  margin-top: rem(80px);
+}
+
+.main-inner {
+  padding-left: rem(80px);
+  padding-right: rem(80px);
+
+  @include breakpoint(smalldevice) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.container-inner {
+  padding-left: rem($container-inner-padding);
+  padding-right: rem($container-inner-padding);
+
+  @include breakpoint(smalldevice) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.container-inner-full {
+  margin-left: rem(-$container-inner-padding);
+  margin-right: rem(-$container-inner-padding);
+
+  @include breakpoint(smalldevice) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

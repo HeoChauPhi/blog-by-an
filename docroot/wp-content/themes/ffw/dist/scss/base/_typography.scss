@@ -1,7 +1,7 @@
 html {
   @include MontserratAlternates;
   font-size: $base-font-size;
-  line-height: 1.5;
+  line-height: 2;
 }
 
 body {
@@ -13,6 +13,7 @@ body {
 
 a {
   color: $color-link;
+  outline: none !important;
 
   &:hover {
     color: $color-link-hover;
@@ -25,3 +26,68 @@ img {
   height: auto;
   max-width: 100%;
 }
+
+figcaption {
+  font-style: italic;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include MontserratAlternatesBlod;
+  color: $color-title;
+  line-height: 1.2;
+  margin: rem(0 0 28px);
+}
+
+select,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea {
+  background-color: $white;
+  border: rem(1px) solid $color-line;
+  color: $color-base;
+  font-size: rem(14px);
+  max-width: 100%;
+  outline: none !important;
+  padding: rem(14px 22px);
+
+  &:focus,
+  &:hover,
+  &:active,
+  &:-internal-autofill-selected {
+    background-color: $white !important;
+  }
+}
+
+button,
+input[type="submit"] {
+  @extend %btn;
+}
+
+ul,
+ol {
+  margin-bottom: rem(25px);
+}
+
+/* table {
+  border: none;
+
+  tr {
+    border: none;
+  }
+
+  th,
+  td {
+    border-color: $color-line;
+    border-style: solid;
+    border-width: rem(0 0 1px);
+    padding: rem(10px 0);
+  }
+} */

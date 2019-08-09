@@ -122,4 +122,8 @@
     background-image: url(../images/icons/chevron-right-white.svg);
     right: 0;
   }
+
+  &:hover {
+    background-color: transparent;
+  }
 }

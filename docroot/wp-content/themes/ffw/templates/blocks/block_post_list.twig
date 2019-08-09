@@ -1,0 +1,27 @@
+<div class="block-sidebar block-sidebar-post-list block-sidebar-post-{{ post_filtter }} {{ component_class }}">
+  <h3 class="block-title sidebar-title">{{ block_title }}</h3>
+  <div class="block-sidebar-body">
+    <div class="sidebar-post-list">
+    {% for post in return_items %}
+      <div class="sidebar-post-item sidebar-post-{{ post_filtter }}">
+        {% if post.thumbnail %}
+        <div class="sidebar-post-image" style="background-image: url({{ post.thumbnail.src }});">
+          <img src="{{ post.thumbnail.src }}">
+          {% if post_filtter == 'recent' %}
+          <a href="{{ post.link }}" class="sidebar-post-link"></a>
+          {% endif %}
+        </div>
+        {% endif %}
+        <div class="sidebar-post-body">
+          <h3 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+          <div class="post-info">
+            {#{% set user_data = fn('get_userdata', post.post_author).data %}
+                        <div class="post-author"><a href="{{ fn('get_author_posts_url', user_data.ID) }}">{{ user_data.display_name }}</a></div>#}
+            <div class="post-date">{{ post.date|date('F j, Y') }}</div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>

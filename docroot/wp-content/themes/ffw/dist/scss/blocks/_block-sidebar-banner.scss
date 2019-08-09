@@ -1,0 +1,47 @@
+.block-sidebar-banner {
+  .sidebar-banner-title {
+    display: block;
+    margin: 0;
+    padding: rem(15px);
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.sidebar-banner-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: rem(20px);
+  position: relative;
+}
+
+.sidebar-banner-inner {
+  align-items: center;
+  background-color: rgba($white, 0.6);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.sidebar-banner-large {
+  height: rem(600px);
+  width: rem(300px);
+}
+
+.sidebar-banner-small {
+  height: rem(250px);
+  width: rem(300px);
+}
+
+.sidebar-banner-link {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}

@@ -1,0 +1,16 @@
+<div class="block-sidebar block-newsletter {{ component_class }}">
+  <h3 class="block-title sidebar-title">{{ block_title }}</h3>
+  <div class="block-sidebar-body">
+    <div class="block-newsletter-social">
+      <ul class="social-list">
+        {% for item in social_list %}
+          <li class="social-item"><a href="{{ item.social_url }}">{{ item.social_icon }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="block-newsletter-form">
+      <h3 class="block-title">{{ fn('get_the_title', newsletter_form) }}</h3>
+      {{ fn('shortcode', '[mc4wp_form id="' ~ newsletter_form ~ '"]') }}
+    </div>
+  </div>
+</div>

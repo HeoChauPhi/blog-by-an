@@ -1,8 +1,9 @@
-<p>{{ function('avatar_author') }}</p>
+<div class="container">
+<div class="post-author-avata"><img src="{{ fn('get_field', 'user_avatar', 'user_' ~ author.ID).sizes.thumbnail }}" alt></div>
 {% if (author.first_name or author.first_name) is empty %}
 <p>{{author.user_nicename}}</p>
 {% else %}
-<p>{{author.last_name}}</p>
-<p>{{author.first_name}}</p>
+<p>{{author.display_name}}</p>
 {% endif %}
 <p>{{author.user_email}}</p>
+</div>

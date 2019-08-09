@@ -1,0 +1,34 @@
+{% set user_data = comment.author %}
+{% if user_data.ID %}
+  {% set author_avatar = fn('get_field', 'user_avatar', 'user_' ~ user_data.ID).sizes.thumbnail %}
+{% else %}
+  {% set author_avatar = default_avatar %}
+{% endif %}
+<div class="comment-item comment-{{ comment.ID }}">
+  <div class="comment-author-picture" style="background-image: url({{ author_avatar }});">
+    <img src="{{ author_avatar }}" alt>
+  </div>
+  <div class="comment-body">
+    <h4 class="comment-author-name">
+      {% if user_data.ID %}
+        <a class="comment-author-link" href="{{ fn('get_author_posts_url', user_data.ID) }}">{{ user_data.name }}</a>
+      {% else %}
+        {{ user_data.name }}
+      {% endif %}
+    </h4>
+    <div class="comment-date">{{ comment.date|date('F j, Y') }} {{ pll_e('at') }} {{ comment.date|date('g:i a') }}</div>
+    {% if comment.comment_approved == 0 %}
+    <div class="comment-meassage">{{ pll_e('Your comment is awaiting moderation.') }}</div>
+    {% endif %}
+    <div class="comment-content">{{ comment.content }}</div>
+  </div>
+  <div class="comment-link-reply">{{ comment.reply_link }}</div>
+</div>
+
+{% if comment.children is not empty %}
+  <div class="indented">
+    {% for subcomment in comment.children %}
+      {% include 'subcomment-item.twig' with {'comment': subcomment, 'default_avatar': default_avatar} only %}
+    {% endfor %}
+  </div>
+{% endif %}

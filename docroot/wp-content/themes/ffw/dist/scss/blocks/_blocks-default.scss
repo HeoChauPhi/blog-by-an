@@ -1,0 +1,21 @@
+.block-sidebar {
+  margin-bottom: rem(55px);
+
+  .block-title {
+    align-items: flex-end;
+    color: $color-title;
+    display: flex;
+    font-size: rem(16px);
+    margin: rem(0 0 20px);
+    text-transform: uppercase;
+
+    &:after {
+      background-color: $color-link;
+      content: "";
+      display: block;
+      height: rem(2px);
+      margin: rem(0 0 7px 17px);
+      width: rem(18px);
+    }
+  }
+}

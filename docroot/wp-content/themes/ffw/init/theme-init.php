@@ -135,10 +135,19 @@ function acfwidget($name, $widgetid) {
         $layout = $field['acf_fc_layout'];
         
         switch ($layout) {
+          case 'test':
+            print_r($field);
+            try {
+              Timber::render($layout . '.twig', $field);
+            } catch (Exception $e) {
+              echo 'Could not find a twig file for layout type: ' . $layout . '<br>';
+            }
+            break;
+
           default:
             $field['index'] = $index;
 
-            if ( strpos($field['component_class'], 'col-') === false ) {
+            if ( ($name == 'footer_components') && (strpos($field['component_class'], 'col-') === false) ) {
               if ( $acffield_count <= 4 ) {
                 $field['layout'] = 12 / $acffield_count;
               } else {
@@ -380,6 +389,73 @@ function flexible_content($name) {
           }
           break;
 
+        case 'block_list_posts':
+          if ( ($field['number_of_posts'] == -1) || ($field['number_of_posts'] == 0)  ) {
+            $showposts = -1;
+            $posts_per_page = -1;
+          } elseif ( $field['number_of_posts'] < $field['post_number_on_page'] ) {
+            $showposts = $field['number_of_posts'];
+            $posts_per_page = $field['number_of_posts'];
+          } else {
+            $showposts = $field['number_of_posts'];
+            $posts_per_page = $field['post_number_on_page'];
+          }
+
+          $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
+          $args = array(
+            'post_type'       => $field['post_type'],
+            'posts_per_page'  => $posts_per_page,
+            'paged'           => $paged
+          );
+
+          //query_posts($args);
+          $posts = new WP_Query($args);
+
+          $posts_total = count($posts->posts);
+          $max_pagination = CEIL($showposts/$posts_per_page);
+
+          if ( $max_pagination >= $posts->max_num_pages ) {
+            $max_pagination = $posts->max_num_pages;
+          }
+
+          if ( $showposts != -1 ) {
+            $post_number_paged = $posts_per_page * $paged - $showposts;
+
+            if ( $post_number_paged > 0 ) {
+              array_splice($posts->posts, -$post_number_paged);
+            }
+          }
+
+          //print_r($posts->posts);
+
+          if ( ($showposts == -1 && $paged == 1) || ($showposts != -1 && $showposts >= $posts_total && $posts_total >= 1 && $max_pagination >= $paged) ) {
+            $field['return_items'] = $posts->posts;
+          }
+
+          if ( ($showposts != -1) && ($max_pagination >= $paged) ) {
+            //$field['pagination'] = Timber::get_pagination();
+
+            $big = 999999999; // need an unlikely integer
+   
+            $pagination = Timber::get_pagination( array(
+              'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+              'format'    => '?paged=%#%',
+              'current'   => max( 1, get_query_var('paged') ),
+              'mid_size'  => 1,
+              'total'     => $max_pagination
+            ) );
+
+            $field['pagination'] = $pagination;
+          }
+
+          try {
+              Timber::render($layout . '.twig', $field);
+          } catch (Exception $e) {
+              echo 'Could not find a twig file for layout type: ' . $layout . '<br>';
+          }
+          break;
+
         case 'map_block':
           $theme_options = get_option('ffw_board_settings');
           $google_api_key = $theme_options['ffw_google_api_key'];
@@ -592,6 +668,10 @@ function ffw_twig_data($data){
   } else {
     $data['site_logo'] = new TimberImage($logo);
   }
+
+  // Default Image
+  $avatar = get_template_directory_uri().'/dist/images/default-avata.png';
+  $data['default_avatar'] = new TimberImage($avatar);
 
   // menu
   $data['menu']['main'] = new TimberMenu('main');

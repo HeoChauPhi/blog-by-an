@@ -1,0 +1,7 @@
+<ul class="terms-child-list">
+  {% for child in childs %}
+    {% if child.parent == parent %}
+      {% include 'category-term.twig' with {'term': child} %}
+    {% endif %}
+  {% endfor %}
+</ul>

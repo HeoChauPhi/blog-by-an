@@ -1,5 +1,6 @@
 #feature {
   color: $white;
+  margin-bottom: rem(60px);
   position: relative;
 }
 
@@ -113,6 +114,7 @@
 
       .slide-item-title {
         @include MontserratAlternatesBlod;
+        color: $white;
         font-size: rem(32px);
         margin: rem(0 0 20px);
       }

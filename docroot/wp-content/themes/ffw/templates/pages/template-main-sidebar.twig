@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        {% for post in posts %}
+          {% if post.content %}
+          <div class="block-content__body">{{ post.content|shortcodes }}</div>
+          {% endif %}
+
+          {{ function('flexible_content', 'group_component') }}
+        {% endfor %}
+      </div>
+
+      <div class="col-md-4">
+        {{ sidebar_left }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+<div class="block-sidebar block-sidebar-categories {{ component_class }}">
+  <h3 class="block-title sidebar-title">{{ block_title }}</h3>
+  <div class="block-sidebar-body">
+    <ul class="terms-list">
+      {% for term in terms %}
+        {% if term.parent == 0 %}
+        {% include 'category-term.twig' with {'term': term, 'category_count': category_count, 'category_hierarchy': category_hierarchy} only %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

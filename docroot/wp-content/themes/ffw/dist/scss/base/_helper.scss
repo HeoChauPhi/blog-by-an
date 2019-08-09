@@ -37,6 +37,23 @@
   z-index: -2;
 }
 
+%btn,
+.btn {
+  @include transition(all 0.3s ease);
+  background-color: $bg-menu;
+  border-radius: 0;
+  border: rem(5px) solid $bg-menu;
+  color: $white;
+  font-weight: 600;
+  padding: rem(14px 33px);
+  text-transform: capitalize;
+
+  &:hover {
+    background-color: $white;
+    color: $bg-menu;
+  }
+}
+
 .button-scroll-down {
   border-radius: rem(500px);
   border: rem(1px) solid $white;

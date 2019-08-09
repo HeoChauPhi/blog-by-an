@@ -1,0 +1,14 @@
+<li class="term-item">
+  <a href="{{ fn('get_term_link', term.ID) }}" {% if term.category_image %}style="background-image: url({{ term.category_image.url }});"{% endif %}>
+    <span class="term-item-inner">
+      <span class="term-item-name">{{ term.name }}</span>
+      {% if category_count %}
+      <span class="term-item-count">{{ term.count }}</span>
+      {% endif %}
+    </span>
+  </a>
+</li>
+
+{% if category_hierarchy and term.get_children %}
+  {% include 'category-sub-term.twig' with {'childs': term.get_children, 'parent': term.ID} %}
+{% endif %}

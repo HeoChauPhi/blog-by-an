@@ -1,0 +1,357 @@
+.single-post {
+  .signle-wrapper {
+    margin-bottom: rem(50px);
+  }
+
+  h1#page-title {
+    font-size: rem(30px);
+    margin-bottom: rem(10px);
+    text-align: center;
+  }
+
+  .post-info {
+    align-items: center;
+    color: $color-textlight;
+    display: flex;
+    font-weight: 600;
+    justify-content: center;
+    margin-bottom: rem(35px);
+    text-transform: uppercase;
+
+    a {
+      color: $color-textlight;
+
+      &:hover {
+        color: $color-link;
+      }
+    }
+  }
+
+  .post-info-dash {
+    background-color: $color-link;
+    height: rem(1px);
+    margin: rem(0 15px);
+    width: rem(8px);
+  }
+
+  .post-media {
+    margin-bottom: rem(50px);
+    position: relative;
+  }
+
+  .post-like {
+    @include box-shadow(rem(0 0 25px 0) rgba($black, 0.15));
+    align-items: center;
+    background-color: $white;
+    border-radius: rem(500px);
+    bottom: rem(-15px);
+    color: $color-base;
+    display: flex;
+    font-weight: 600;
+    height: rem(78px);
+    justify-content: center;
+    left: rem(-15px);
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    width: rem(78px);
+
+    &-inner {
+      > * {
+        display: block;
+      }
+    }
+  }
+
+  figure.wp-block-image,
+  .wp-block-gallery {
+    @extend .container-inner-full;
+    margin-bottom: rem(50px);
+    margin-top: rem(45px);
+    max-width: none;
+  }
+
+  .wp-block-embed {
+    text-align: center;
+  }
+
+  iframe {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .wp-block-gallery {
+    .blocks-gallery-item {
+      img {
+        cursor: pointer;
+        display: block !important;
+      }
+    }
+  }
+
+  .single-content-body {
+    margin-bottom: rem(90px);
+
+    ul,
+    ol {
+      li {
+        margin-bottom: rem(10px);
+      }
+    }
+  }
+
+  .social-wrapper {
+    justify-content: space-between;
+    margin-bottom: rem(25px);
+    overflow: hidden;
+
+    .social-icons-label {
+      display: none;
+    }
+
+    &:after {
+      content: "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+      white-space: nowrap;
+    }
+  }
+
+  .post-tags {
+    overflow: hidden;
+
+    > a {
+      background-color: $bg-light;
+      border: rem(1px) solid $bg-light;
+      color: $color-base;
+      float: left;
+      font-size: rem(10px) !important;
+      font-weight: 600;
+      letter-spacing: rem(1px);
+      margin-bottom: rem(6px);
+      margin-right: rem(6px);
+      padding: rem(8px 16px);
+      text-transform: uppercase;
+
+      &:hover {
+        color: $color-link;
+      }
+    }
+  }
+}
+
+/* Navigation links */
+.post-nav-link {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: rem(70px);
+
+  .post-nav-prev {
+    padding-right: rem(15px);
+  }
+
+  .post-nav-next {
+    padding-left: rem(15px);
+    text-align: right;
+  }
+
+  label {
+    display: block;
+    font-size: rem(16px);
+  }
+
+  a {
+    color: $color-base;
+
+    &:hover {
+      color: $color-link;
+    }
+  }
+}
+
+/* Related post */
+.block-related-post {
+  margin-bottom: rem(50px);
+}
+
+.related-title {
+  margin-bottom: rem(45px);
+}
+
+.post-related {
+  .post-related-image {
+    margin-bottom: rem(22px);
+    overflow: hidden;
+    position: relative;
+
+    &-inner {
+      @include transition(all .3s ease);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: block;
+      min-height: rem(215px);
+    }
+
+    &:hover {
+      .post-related-image-inner {
+        @include transform(scale(1.1));
+      }
+    }
+
+    img {
+      position: relative;
+      visibility: hidden;
+      z-index: -9;
+    }
+  }
+
+  .post-related-link {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .post-title {
+    font-size: rem(16px);
+    margin: rem(0 0 10px);
+
+    a {
+      color: $color-title;
+
+      &:hover {
+        color: $color-link
+      }
+    }
+  }
+
+  .post-info {
+    align-items: center;
+    display: flex;
+    font-size: rem(12px);
+    font-weight: 600;
+    justify-content: flex-start;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}
+
+/* Comments */
+.comment-list {
+  margin-bottom: rem(60px);
+}
+
+.comment-title {
+  margin-bottom: rem(60px);
+  text-align: center;
+}
+
+.block-comment-wrapper {
+  margin-bottom: rem(30px);
+
+  .comment-item {
+    align-items: flex-start;
+    border-bottom: rem(1px) solid $color-line;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: rem(40px);
+    padding-bottom: rem(35px);
+  }
+
+  .comment-author-picture {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: rem(500px);
+    height: rem(80px);
+    overflow: hidden;
+    width: rem(80px);
+
+    img {
+      position: relative;
+      visibility: hidden;
+      z-index: -9;
+    }
+  }
+
+  .comment-body {
+    flex: 1;
+    padding: rem(7px 35px 0 35px);
+  }
+
+  .comment-author-name {
+    margin-bottom: rem(13px);
+  }
+
+  .comment-date {
+    font-size: rem(14px);
+    font-style: italic;
+    margin-bottom: rem(15px);
+  }
+
+  .comment-meassage {
+    margin-bottom: rem(20px);
+  }
+
+  .comment-link-reply {
+    a {
+      color: $color-base;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $color-link;
+      }
+    }
+  }
+
+  .indented {
+    > .comment-item {
+      padding-left: rem(40px);
+    }
+  }
+}
+
+.comment-form {
+  label {
+    display: block;
+  }
+
+  select,
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+  }
+
+  .comment-form-author {
+    float: left;
+    width: 49%;
+  }
+
+  .comment-form-email {
+    float: right;
+    width: 49%;
+  }
+
+  .comment-form-url {
+    clear: both;
+  }
+
+  .comment-form-cookies-consent {
+    display: flex;
+    align-items: center;
+
+    input[type="checkbox"] {
+      margin: rem(0 10px 0 0);
+    }
+
+    label {
+      margin: 0;
+    }
+  }
+}
