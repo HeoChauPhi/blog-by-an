@@ -4,11 +4,13 @@
     <div class="facebook-image-slide facebook-image-list">
       {% set facebook_data = fn('facebook_data', number_of_images).data %}
       {% for item in facebook_data %}
+        {% if item.full_picture is not empty %}
         <div class="facebook-image-item">
           <div class="facebook-image-inner" style="background-image: url({{ item.full_picture }});">
             <a class="facebook-image-popup" data-fancybox="facebook-image-slide-popup" href="{{ item.full_picture }}"></a>
           </div>
         </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
