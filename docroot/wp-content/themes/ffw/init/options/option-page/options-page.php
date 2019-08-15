@@ -20,6 +20,14 @@ function ct_page_option_metaboxes() {
     'id'         => $prefix . 'title',
     'type'       => 'checkbox'
   ) );
+
+  // Page Full
+  $cmb->add_field( array(
+    'name'       => __( 'Page Full', 'cmb2' ),
+    'desc'       => __( 'Check it if you want use Page layout Full', 'cmb2' ),
+    'id'         => $prefix . 'page_full',
+    'type'       => 'checkbox'
+  ) );
 }
 
 function framework_page($name = '') {

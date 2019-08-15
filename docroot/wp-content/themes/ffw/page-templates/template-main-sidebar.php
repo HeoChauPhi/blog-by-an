@@ -9,8 +9,15 @@
 
 $context = Timber::get_context();
 $post = new TimberPost();
-$context['posts'] = $post;
+$protected = post_password_required($post->ID);
+$context['protected_label'] = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+$context['post'] = $post;
+$context['title_option'] = framework_page('title');
 
 $context['sidebar_left'] = Timber::get_widgets('sidebar-left');
 
-Timber::render( 'template-main-sidebar.twig', $context );
+if ($protected) {
+  Timber::render( 'single-protected.twig', $context );
+} else {
+  Timber::render( 'template-main-sidebar.twig', $context );
+}

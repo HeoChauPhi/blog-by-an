@@ -1,0 +1,35 @@
+<div class="block-contact-info {{ component_class }}">
+  
+    <div class="contact-info-list">
+      <div class="container">
+        <div class="contact-info-list-inner">
+          <div class="row">
+          {% for item in contact_info_list %}
+            <div class="contact-info-item col-md-4">
+              <div class="contact-info-icon">{{ item.contact_icon }}</div>
+              <h3 class="contact-info-title">{{ item.contact_title }}</h3>
+              <div class="contact-info-content">{{ item.contact_content }}</div>
+              <div class="contact-info-link"><a href="{{ item.contact_link.url }}" {% if item.contact_link.target %}target="_blank"{% endif %}>{{ item.contact_link.title }}</a></div>
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <div class="container">
+        <div class="contact-form-inner">
+          <div class="contact-form-head">
+            <h2 class="block-title contact-form-title">{{ contact_form.contact_form_title }}</h2>
+            <h3 class="contact-form-subtitle">{{ contact_form.contact_form_subtitle }}</h3>
+            <div class="contact-form-desc">{{ contact_form.contact_form_desc }}</div>
+          </div>
+          <div class="contact-form-subscribe">
+            {{ fn('shortcode', '[contact-form-7 id="' ~ contact_form.contact_form_attach ~ '"]') }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>

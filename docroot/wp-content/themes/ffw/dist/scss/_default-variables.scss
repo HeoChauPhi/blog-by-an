@@ -31,15 +31,16 @@ $container-inner-padding: 90px;
   font-weight: 700;
 }
 
-$base-font-size: 15px;
+$base-font-size: 18px !default;
+$font-size-base: $base-font-size;
 
 // Color.
-$orenge: #ec6a2a;
+$orange: #ec6a2a;
 $orange-lighter: #f28f4e;
 $black: #000000;
 $white: #ffffff;
 
-$color-primary: $orenge;
+$color-primary: $orange;
 $color-second: $orange-lighter;
 
 $gray-54: #545454;

@@ -107,6 +107,7 @@
   background-size: contain;
   border: none;
   height: 100px;
+  padding: 0;
   position: absolute;
   text-indent: -999em;
   top: 50%;
@@ -123,7 +124,8 @@
     right: 0;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: transparent;
   }
 }

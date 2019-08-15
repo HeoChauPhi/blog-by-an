@@ -1,4 +1,8 @@
 .single-post {
+  main {
+    padding-bottom: rem(60px);
+  }
+
   .signle-wrapper {
     margin-bottom: rem(50px);
   }
@@ -37,6 +41,10 @@
   .post-media {
     margin-bottom: rem(50px);
     position: relative;
+  }
+
+  .post-image {
+    text-align: center;
   }
 
   .post-like {
@@ -123,7 +131,7 @@
       border: rem(1px) solid $bg-light;
       color: $color-base;
       float: left;
-      font-size: rem(10px) !important;
+      font-size: rem(12px) !important;
       font-weight: 600;
       letter-spacing: rem(1px);
       margin-bottom: rem(6px);
@@ -156,7 +164,7 @@
 
   label {
     display: block;
-    font-size: rem(16px);
+    font-size: rem(18px);
   }
 
   a {
@@ -189,7 +197,7 @@
       background-repeat: no-repeat;
       background-size: cover;
       display: block;
-      min-height: rem(215px);
+      height: rem(215px);
     }
 
     &:hover {
@@ -214,7 +222,7 @@
   }
 
   .post-title {
-    font-size: rem(16px);
+    font-size: rem(18px);
     margin: rem(0 0 10px);
 
     a {
@@ -229,7 +237,7 @@
   .post-info {
     align-items: center;
     display: flex;
-    font-size: rem(12px);
+    font-size: rem(14px);
     font-weight: 600;
     justify-content: flex-start;
     margin: 0;
@@ -285,7 +293,7 @@
   }
 
   .comment-date {
-    font-size: rem(14px);
+    font-size: rem(16px);
     font-style: italic;
     margin-bottom: rem(15px);
   }

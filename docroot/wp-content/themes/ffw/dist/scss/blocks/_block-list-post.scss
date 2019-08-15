@@ -1,6 +1,18 @@
 .post-item {
   margin-bottom: rem(60px);
 
+  &.blog-full {
+    .post-body {
+      padding-left: rem($container-inner-padding);
+      padding-right: rem($container-inner-padding);
+
+      @include breakpoint(smalldevice) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
   .post-media {
     margin-bottom: rem(43px);
     position: relative;
@@ -159,6 +171,10 @@
       margin-right: rem(25px);
       width: rem(60px);
     }
+
+    .sidebar-post-body {
+      width: calc(100% - 60px);
+    }
   }
 
   .sidebar-post-recent {
@@ -179,7 +195,7 @@
   }
 
   .post-title {
-    font-size: rem(16px);
+    font-size: rem(18px);
     margin: rem(0 0 10px);
 
     a {
@@ -194,7 +210,7 @@
   .post-info {
     align-items: center;
     display: flex;
-    font-size: rem(12px);
+    font-size: rem(14px);
     text-transform: uppercase;
   }
 

@@ -144,7 +144,7 @@
 
           > a {
             color: $color-menu;
-            font-size: rem(15px);
+            font-size: rem(18px);
             padding-bottom: rem(3px);
             text-transform: capitalize;
 
@@ -234,6 +234,10 @@
   display: flex;
   justify-content: space-between;
   padding: rem(12px 0);
+
+  .logo {
+    max-width: 50%;
+  }
 }
 
 .menu-responsive {
@@ -308,7 +312,7 @@
   }
 
   .pager-item {
-    font-size: rem(12px);
+    font-size: rem(14px);
     margin-left: rem(10px);
 
     a,

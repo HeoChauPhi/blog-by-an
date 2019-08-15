@@ -1,0 +1,145 @@
+.block-contact-info {
+  overflow: hidden;
+
+  .contact-info-list {
+    background-color: lighten($bg-light, 0.5%);
+    margin-top: rem(150px);
+  }
+
+  .contact-info-list-inner {
+    @include background-image(linear-gradient(#f28f4e, #ec6a2a));
+    border-radius: rem(3px);
+    color: $white;
+    margin: rem(-150px 0 55px 0);
+    padding: rem(60px 70px);
+
+    a {
+      color: $white;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .contact-info-item {
+    @include breakpoint(colmdDown) {
+      margin-bottom: rem(40px);
+    }
+
+    @include breakpoint(colmd) {
+      &:nth-of-type(3n+1) {
+        padding-right: rem(30px);
+      }
+
+      &:nth-of-type(3n+2) {
+        padding: rem(0 23px);
+      }
+
+      &:nth-of-type(3n+3) {
+        padding-left: rem(30px);
+      }
+    }
+  }
+
+  .contact-info-icon {
+    font-size: rem(32px);
+    line-height: rem(32px);
+    margin-bottom: rem(30px);
+  }
+
+  .contact-info-title {
+    color: $white;
+    margin-bottom: rem(15px);
+  }
+
+  .contact-info-content {
+    margin-bottom: rem(15px);
+  }
+
+  .contact-info-link {
+    a {
+      font-weight: 600;
+    }
+  }
+
+  .contact-form {
+    background-color: darken($bg-light, 0.5%);
+    padding: rem(65px 0 75px);
+  }
+
+  .contact-form-inner {
+    padding-left: rem(180px);
+    padding-right: rem(180px);
+  }
+
+  .contact-form-head {
+    text-align: center;
+  }
+
+  .contact-form-title {
+    margin-bottom: rem(15px);
+  }
+
+  .contact-form-subtitle {
+    color: $color-base;
+    font-size: rem(20px);
+    margin-bottom: rem(45px);
+  }
+
+  .contact-form-desc {
+    margin-bottom: rem(45px);
+  }
+
+  .contact-form-subscribe {
+    .cf7-field-wrapper {
+      line-height: 0;
+
+      > label {
+        font-weight: 400;
+        margin: 0;
+        text-indent: -999em;
+        width: 100%;
+      }
+
+      .wpcf7-form-control-wrap {
+        display: block;
+        line-height: 2;
+      }
+
+      .wpcf7-not-valid-tip {
+        text-indent: 0;
+      }
+
+      select, input[type="text"],
+      input[type="password"],
+      input[type="email"], 
+      input[type="tel"],
+      input[type="number"],
+      textarea {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .cf7-button-field {
+      position: relative;
+
+      input[type="submit"] {
+        width: 100%;
+      }
+
+      .ajax-loader {
+        margin: rem(-8px 8px 0 0);
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+    }
+
+    .wpcf7-response-output {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}

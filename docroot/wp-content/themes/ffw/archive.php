@@ -28,16 +28,11 @@
 );*/
 
 global $paged;
-if (!isset($paged) || !$paged){
-    $paged = 1;
-}
+$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 $context = Timber::get_context();
 $count = 16;
-$context['count'] = $count;
-$context['paged'] = $paged;
 $taxonomy = new TimberTerm();
-
 
 $args = array(
   'post_type' => 'any',
@@ -67,7 +62,20 @@ if ( is_day() ) {
   $context['title'] = post_type_archive_title( '', false );
 }
 
-query_posts($args);
-$context['term'] = $taxonomy;
-$context['pagination'] = Timber::get_pagination();
+$posts = new WP_Query($args);
+$context['return_items'] = $posts->posts;
+
+// Pagination
+$big = 999999999; // need an unlikely integer
+
+$pagination = Timber::get_pagination( array(
+  'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+  'format'    => '?paged=%#%',
+  'current'   => max( 1, get_query_var('paged') ),
+  'mid_size'  => 1,
+  'total'     => $posts->max_num_pages
+) );
+
+$context['pagination'] = $pagination;
+
 Timber::render( 'archive.twig', $context );

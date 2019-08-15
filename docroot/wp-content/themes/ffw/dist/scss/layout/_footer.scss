@@ -20,7 +20,7 @@
     @include MontserratAlternatesBlod;
     color: $white;
     margin: rem(0 0 32px);
-    font-size: rem(15px);
+    font-size: rem(18px);
   }
 }
 
@@ -41,8 +41,14 @@
     padding: 0;
 
     &.footer-menu-2col {
-      column-count: 2;
-      column-gap: rem(15px);
+      li {
+        float: left;
+        width: 48%;
+
+        &:nth-of-type(2n+2) {
+          float: right;
+        }
+      }
     }
   
     li {

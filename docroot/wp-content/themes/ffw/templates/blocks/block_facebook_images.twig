@@ -1,0 +1,15 @@
+<div class="block-sidebar block-facebook-images {{ component_class }}">
+  <h3 class="block-title sidebar-title">{{ block_title }}</h3>
+  <div class="block-sidebar-body">
+    <div class="row facebook-image-list">
+      {% set facebook_data = fn('facebook_data', number_of_images).data %}
+      {% for item in facebook_data %}
+        <div class="col-xs-4 facebook-image-item">
+          <div class="facebook-image-inner" style="background-image: url({{ item.full_picture }});">
+            <a class="facebook-image-popup" data-fancybox="facebook-image-popup" href="{{ item.full_picture }}"></a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

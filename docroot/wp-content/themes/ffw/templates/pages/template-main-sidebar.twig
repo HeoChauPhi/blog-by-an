@@ -3,7 +3,7 @@
 {% block content %}
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-8 main-content">
         {% for post in posts %}
           {% if post.content %}
           <div class="block-content__body">{{ post.content|shortcodes }}</div>
@@ -13,7 +13,7 @@
         {% endfor %}
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 sidebar-left">
         {{ sidebar_left }}
       </div>
     </div>

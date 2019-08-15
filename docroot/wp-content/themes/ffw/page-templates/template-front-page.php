@@ -9,6 +9,8 @@
 
 $context = Timber::get_context();
 $post = new TimberPost();
+$protected = post_password_required($post->ID);
+$context['protected_label'] = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
 $context['post'] = $post;
 
 // Feature posts select
@@ -23,4 +25,8 @@ $context['post_slide'] = $post_slide;
 
 $context['sidebar_left'] = Timber::get_widgets('sidebar-left');
 
-Timber::render( 'template-front-page.twig', $context );
+if ($protected) {
+  Timber::render( 'single-protected.twig', $context );
+} else {
+  Timber::render( 'template-front-page.twig', $context );
+}

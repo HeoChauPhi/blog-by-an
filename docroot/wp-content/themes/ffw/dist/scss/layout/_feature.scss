@@ -2,6 +2,7 @@
   color: $white;
   margin-bottom: rem(60px);
   position: relative;
+  z-index: 0;
 }
 
 .feature {
@@ -41,12 +42,13 @@
 
     #page-title {
       @include MontserratAlternatesBlod;
+      color: $white;
       font-size: rem(32px);
       margin: rem(0 0 20px);
     }
 
     .page-description {
-      font-size: rem(16px);
+      font-size: rem(18px);
     }
   }
 
@@ -120,7 +122,7 @@
       }
 
       .slide-item-intro {
-        font-size: rem(16px);
+        font-size: rem(18px);
 
         .dash {
           background-color: $white;

@@ -52,6 +52,8 @@ function ffw_set_posts_per_page( $query ) {
 
 add_filter( 'body_class', 'ffw_body_class' );
 function ffw_body_class( $classes ) {
+  //$classes = array_merge($classes, ['heochaua']);
+
   return $classes;
 }
 
@@ -141,6 +143,16 @@ class sidebar_Widget extends WP_Widget {
           $layout = $field['acf_fc_layout'];
           
           switch ($layout) {
+            case 'test':
+              print_r($field);
+              
+              try {
+                Timber::render($layout . '.twig', $field);
+              } catch (Exception $e) {
+                echo 'Could not find a twig file for layout type: ' . $layout . '<br>';
+              }
+              break;
+
             case 'block_categories':
               $field['terms'] = Timber::get_terms('category');
               

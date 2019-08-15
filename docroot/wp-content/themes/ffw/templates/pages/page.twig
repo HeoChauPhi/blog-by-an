@@ -1,17 +1,36 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
-  {% for post in posts %}
-    {% if post.content %}
-    <div class="block-content__body">{{ post.content|shortcodes }}</div>
+  <div class="main-wrapper">
+    {% if page_full != "on" %}
+      <div class="container">
+        <div class="main-inner">
+        {% for post in posts %}
+          {% if post.content %}
+          <div class="block-content__body">{{ post.content|shortcodes }}</div>
+          {% endif %}
+
+          {{ function('flexible_content', 'group_component') }}
+        {% endfor %}
+        {#% if function('comments_open') %}
+        {% include 'comments.twig' %}
+        {{ function('comment_form') }}
+        {% endif %#}
+        </div>
+      </div>
+    {% else %}
+      {% for post in posts %}
+        {% if post.content %}
+        <div class="block-content__body">{{ post.content|shortcodes }}</div>
+        {% endif %}
+
+        {{ function('flexible_content', 'group_component') }}
+      {% endfor %}
+      {#% if function('comments_open') %}
+      {% include 'comments.twig' %}
+      {{ function('comment_form') }}
+      {% endif %#}
     {% endif %}
-
-    {{ function('flexible_content', 'group_component') }}
-  {% endfor %}
-
-  {#% if function('comments_open') %}
-  {% include 'comments.twig' %}
-  {{ function('comment_form') }}
-  {% endif %#}
+  </div>
 
 {% endblock %}

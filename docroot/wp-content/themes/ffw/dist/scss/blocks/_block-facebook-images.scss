@@ -1,0 +1,69 @@
+.block-facebook-images {
+  .facebook-image-list {
+    margin-left: rem(-8px);
+    margin-right: rem(-8px);
+  }
+
+  .facebook-image-item {
+    padding-left: rem(8px);
+    padding-right: rem(8px);
+  }
+
+  .facebook-image-inner {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: rem(105px);
+    margin-bottom: rem(16px);
+    position: relative;
+    width: 100%;
+  }
+
+  .facebook-image-popup {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+.block-facebook-image-slide {
+  .facebook-image-slide {
+    display: none;
+
+    &.slick-slider {
+      display: block;
+    }
+  }
+
+  .facebook-image-item {
+    float: left;
+    height: rem(220px);
+    width: 20%;
+  }
+
+  .facebook-image-inner {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+
+  .facebook-image-popup {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .slick-arrow {
+    background-color: rgba($black, 0.7);
+    height: rem(40px);
+    transform: translate(0, -20px);
+    width: rem(20px);
+  }
+}

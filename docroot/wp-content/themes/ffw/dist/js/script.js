@@ -173,6 +173,7 @@
     $('.js-back-top').on('click', backToTop);
     $('.js-scroll-down').on('click', scrollDown);
     jcarousel_slider('.feature-slide', 1);
+    jcarousel_slider('.facebook-image-slide', 5);
     $( "ul.wp-block-gallery" ).each(function( index ) {
       $(this).find('.blocks-gallery-item a').attr('data-fancybox', 'wp-block-gallery-' + index);
     });

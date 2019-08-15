@@ -33,6 +33,14 @@
         {% endblock %}
       </main>
 
+      {% if post.get_field('bottom_panel_components') %}
+        {% block bottom_panel %}
+        <div class="bottom-panel-wrapper">
+          {{ fn('flexible_content', 'bottom_panel_components') }}
+        </div>
+        {% endblock %}
+      {% endif %}
+
       {% block footer %}
         {% include 'footer.twig' %}
         {{ wp_footer }}

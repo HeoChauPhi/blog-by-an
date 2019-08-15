@@ -1,9 +1,16 @@
-main {
-  padding-bottom: rem(60px);
-}
-
+.page-title-wrapper,
 .main-wrapper {
   margin-top: rem(80px);
+
+  @include breakpoint(smalldevice) {
+    margin-top: rem(20px);
+  }
+}
+
+.page-title-wrapper {
+  #page-title {
+    text-align: center;
+  }
 }
 
 .main-inner {
@@ -33,5 +40,24 @@ main {
   @include breakpoint(smalldevice) {
     margin-left: 0;
     margin-right: 0;
+  }
+}
+
+.main-content,
+.sidebar-left {
+  padding-bottom: rem(60px);
+}
+
+.bottom-panel-wrapper {
+  padding-bottom: rem(30px);
+
+  > .block-bottom-panel {
+    margin-bottom: rem(30px);
+  }
+
+  .block-title {
+    font-size: rem(18px);
+    font-weight: 600;
+    text-transform: uppercase;
   }
 }

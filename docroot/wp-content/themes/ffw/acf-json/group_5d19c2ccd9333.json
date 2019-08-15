@@ -569,6 +569,75 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5d53cbb744271": {
+                    "key": "layout_5d53cbb744271",
+                    "name": "block_facebook_images",
+                    "label": "Block Facebook Images",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d53cbcd44272",
+                            "label": "Block Title",
+                            "name": "block_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d53cbd744273",
+                            "label": "Number of Images",
+                            "name": "number_of_images",
+                            "type": "number",
+                            "instructions": "0 for disable all images",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": 0,
+                            "max": "",
+                            "step": ""
+                        },
+                        {
+                            "key": "field_5d53cc0944274",
+                            "label": "Component Class",
+                            "name": "component_class",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Components",
@@ -593,5 +662,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1564777831
+    "modified": 1565773714
 }

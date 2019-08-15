@@ -389,6 +389,48 @@ function flexible_content($name) {
           }
           break;
 
+        case 'page_blog_posts':
+          if ( $field['post_number_on_page'] == 0 ) {
+            $posts_per_page = -1;
+          } else {
+            $posts_per_page = $field['post_number_on_page'];
+          }
+
+          $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
+          $args = array(
+            'post_type'       => $field['post_type'],
+            'posts_per_page'  => $posts_per_page,
+            'post_status'     => 'publish',
+            'paged'           => $paged
+          );
+
+          $posts = new WP_Query($args);
+
+          $field['return_items'] = $posts->posts;
+
+          // Pagination
+          $big = 999999999; // need an unlikely integer
+   
+          $pagination = Timber::get_pagination( array(
+            'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+            'format'    => '?paged=%#%',
+            'current'   => max( 1, get_query_var('paged') ),
+            'mid_size'  => 1,
+            'total'     => $posts->max_num_pages
+          ) );
+
+          $field['pagination'] = $pagination;
+
+          //print_r($field);
+
+          try {
+            Timber::render($layout . '.twig', $field);
+          } catch (Exception $e) {
+            echo 'Could not find a twig file for layout type: ' . $layout . '<br>';
+          }
+          break;
+
         case 'block_list_posts':
           if ( ($field['number_of_posts'] == -1) || ($field['number_of_posts'] == 0)  ) {
             $showposts = -1;
@@ -406,6 +448,7 @@ function flexible_content($name) {
           $args = array(
             'post_type'       => $field['post_type'],
             'posts_per_page'  => $posts_per_page,
+            'post_status'     => 'publish',
             'paged'           => $paged
           );
 
@@ -626,6 +669,51 @@ function int($number) {
   $int = (int)$number;
 
   return $int;
+}
+
+/**
+ *
+ * Json decode
+ * @param type $number String need convert.
+ *
+ * @return type $int number after convert.
+ *
+ */
+function json($number) {  
+  $int = (int)$number;
+
+  return $int;
+}
+
+/**
+ *
+ * Get Facebook data
+ * @param type $postnumber Number of Data return, set 0 for return all data.
+ *
+ * @return type $data Object for facebook page.
+ *
+ */
+function facebook_data($postnumber) {
+  $theme_options    = get_option('ffw_board_settings');
+  $facebook_page_id = $theme_options['ffw_facebook_page_id'];
+  $facebook_tocken  = $theme_options['ffw_facebook_tocken'];
+
+  if ( $postnumber > 0 ) { 
+    $data_url   = 'https://graph.facebook.com/' . $facebook_page_id . '?fields=posts.limit(' . $postnumber . '){message,full_picture}&access_token=' . $facebook_tocken;
+  } elseif ( $postnumber == 0 ) {
+    $data_url   = 'https://graph.facebook.com/' . $facebook_page_id . '?fields=posts.limit(9999999999999999999){message,full_picture}&access_token=' . $facebook_tocken;
+  } else {
+    $data_url = null;
+  }
+
+  if ( $data_url != null ) {
+    $data_face  = file_get_contents($data_url);
+    $data       = json_decode($data_face)->posts;
+
+    return $data;
+  } else {
+    print('Data is Null!');
+  }
 }
 
 /**
